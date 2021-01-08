@@ -22,7 +22,7 @@ git branch 				- shows all branch
 git branch <branchname> 			- to create a new branch
 git checkout <branchname> 			- to change branches [should have been committed]
 git checkout -b <branchname>		- to create and move to the branch 
-git fetch 					- pull to local repo
+git fetch 		 			- pull to local repo
 git merge -m <branchname>			- to fast forward merge branches
 git merge --abort				- to abort the merge
 git difftool HEAD				- diff in local repo file and local WD file
@@ -38,4 +38,4 @@ git stash					-
 git rebase <branchname>			- to pull changes into local repo
 git rebase <branch1> <branch2>		- merges changes between branches
 git commit --amend --no-edit -m ".."		- no rewording,,and commit (sort of multiple commit)
-git
+git reword, git drop, git reorder, git squashing/fixup, git split(for commit uses 'edit')
