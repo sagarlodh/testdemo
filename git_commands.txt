@@ -1,12 +1,15 @@
 git version
 touch <filenamae>
-git init
+git init					- to set the above directory as REPO
 git status
-git add .
-git add demo.txt
-touch .gitignore 
-git commit -m "<messsage>"
-git rm --cached demo.txt
+git log					- to see actions 
+git add .					- stage all files
+git add demo.txt				- stage this text file
+touch .gitignore 				- create a file
+git commit -m "<messsage>"			- commit the staged file
+git commit -a -m  "<message>"		- directly commit any tracked files
+git rm --cached demo.txt			- remove file from local repo
+git rm <filename>				- remove file from WD
 git remote -v				- to display the names of origin
 git remote
 git remote add origin <https>
@@ -15,14 +18,22 @@ git remote set-url <newname> <https>
 git config
 git help config
 git config --global user.<parameter> "<value>"
+git branch 				- shows all branch
 git branch <branchname> 			- to create a new branch
 git checkout <branchname> 			- to change branches [should have been committed]
-git merge -m <branchname> 			- to merger branches
-git clone <https link> 			- to pull into local directory
+git checkout -b <branchname>		- to create and move to the branch 
+git fetch 					- pull to local repo
+git merge -m <branchname>			- to fast forward merge branches
+git merge --abort				- to abort the merge
+git difftool HEAD				- diff in local repo file and local WD file
+git diff <branch1>..<branch2>			- to show wt will chaange upon merging
+git branch --merged			- to show merged branches
+git branch -d <branchname>			- to delete branch (use '-D' to delete without warning)
+git merge <branchname>			- three way merge
+git clone <https link> 			- to pull into local WD directory from specific link
 git pull 					- up to date check
 git pull origin master			- to pull the contents of curr repo
-
-
-
+alias graph = "<git command>"		- to create a useable name for long cmds
+git stash					-
 
 
