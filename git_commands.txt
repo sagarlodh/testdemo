@@ -37,4 +37,5 @@ alias graph = "<git command>"		- to create a useable name for long cmds
 git stash					-
 git rebase <branchname>			- to pull changes into local repo
 git rebase <branch1> <branch2>		- merges changes between branches
-
+git commit --amend --no-edit -m ".."		- no rewording,,and commit (sort of multiple commit)
+git
