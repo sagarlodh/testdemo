@@ -7,8 +7,10 @@ git add demo.txt
 touch .gitignore 
 git commit -m "<messsage>"
 git rm --cached demo.txt
-git remote -v
+git remote -v- to display the names of origin
+git remote
 git remote add origin <https>
+git push origin master
 git remote set-url <newname> <https>
 git config
 git help config
@@ -16,3 +18,5 @@ git config --global user.<parameter> "<value>"
 git branch <branchname> - to create a new branch
 git checkout <branchname> - to change branches [should have been committed]
 git merge -m <branchname> - to merger branches
+git clone <https link> - to pull into local directory
+git pull - up to date check
