@@ -1,0 +1,6 @@
+Github tools :
+[1] HUB		- predefined rules
+[2] Husky		- helps in setting up scripts for testing before pushing
+[3] Commitizen	- for proper organizing and patch release
+[4] Commitlint 	- almost same
+[5] gitignore.io	- generating the '.gitignore' file
