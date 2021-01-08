@@ -1,0 +1,18 @@
+git version
+touch <filenamae>
+git init
+git status
+git add .
+git add demo.txt
+touch .gitignore 
+git commit -m "<messsage>"
+git rm --cached demo.txt
+git remote -v
+git remote add origin <https>
+git remote set-url <newname> <https>
+git config
+git help config
+git config --global user.<parameter> "<value>"
+git branch <branchname> - to create a new branch
+git checkout <branchname> - to change branches [should have been committed]
+git merge -m <branchname> - to merger branches
