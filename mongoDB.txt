@@ -16,4 +16,20 @@ it is the one of the best-fit for hierarchial data
 can be scaled horizontally
 MongoDB uses 'CAP' theroerm : consistency, availability, partition tolerance (only two u will get)
 encryptions present and failover mech too
+````````````````````````````````````````````````````````````````````
+HOW TO Initiate :
+````````````````````````
+create a folder 'data/db' in the working directory
+open cmd in bin and run 'mongod'
+open cmd in bin and run 'mongo'
+```````````````````````````````````````````````````
+show dbs				- list DBs (DBs with no data will not be shown)
+use <dbname>			- create DB
+db.user.insertOne({"name":"ramesh"});	- to insert data[name as ramesh]
+db.user.find()			- to see all docs from the collection
+show collections			- to show the curr collections
+ 
+
+
+
 
