@@ -3,18 +3,25 @@ Commands for MongoDB
 show dbs				- list DBs (DBs with no data will not be shown)
 show collections			- to show the curr collections
 use <dbname>			- create DB
-db.user.insertOne({"name":"ramesh"});	- to insert data[name as ramesh] or create it
-db.user.find();			- to see all docs from the collection
+db.<collection>.insert		- to know about the INSERT program
+db.<collection>.insert({...})		- to insert document or create it
+db.<collection>.insertOne({"name":"ramesh"});	- to insert data[name as ramesh] or create it
+db.<collection>.insertMany		- 
+db.isMaster()			- info
+_id: <id>		- to manually set id 
+{ordered:false}	- used to skip error doc while inserting multiple docs at once
+db.<collection>.find();			- to see all docs from the collection
 	(similar to SELECT in SQL)
+db.<collection>.findOne()			- 
 db.createCollection('<collectionname>');
 db.<dbnamae>.insert({"name":"pi"}, "version":"2020"});
 {upsert: true}		- to add the document to the collection or to create a new one if not present
 quit()			- to quit shell
 mongo --help		- help with commands
-mongo --host 127.0.0.1 --port 27017 		- to connect mongoshell
+mongo --host 127.0.0.1 --port 27017 		- to connect mongoshell to clusters
 db.dropDatabase(dbname)			- to delete DB
 db.<collection>.drop()			- to drop a collection
-db.help()					- help
+<keyword>.help()				- help for keyword related functions
 show collections 				- to show collections
 ``````````````````````````````````````````````````````````````````
 For ATLAS (from web)
@@ -22,6 +29,12 @@ For ATLAS (from web)
 1] create a cluster
 2] define network access
 3] define database access
+
+For Compass GUI : 
+	we can download it 	
+	we need to connect it with local MongoDB ( for viewing all info present on local)
+	we can create db and upload collections and data too
+	we can fetch all data in it from mongo shell of local terminal 
 ```````````````````````````````````````````````
 Schema versioning pattern		- to update from versions
 Bucket Pattern
