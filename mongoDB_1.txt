@@ -12,6 +12,8 @@ _id: <id>		- to manually set id
 {ordered:false}	- used to skip error doc while inserting multiple docs at once
 db.<collection>.find();			- to see all docs from the collection
 	(similar to SELECT in SQL)
+	CMD	     ~ find (query, fields, limit, skip, batchSize, options)
+	Compass	     ~ find (filter, project[0/1], sort[1/-1], limit, skip..)
 db.<collection>.findOne()			- 
 db.createCollection('<collectionname>');
 db.<dbnamae>.insert({"name":"pi"}, "version":"2020"});
@@ -23,6 +25,7 @@ db.dropDatabase(dbname)			- to delete DB
 db.<collection>.drop()			- to drop a collection
 <keyword>.help()				- help for keyword related functions
 show collections 				- to show collections
+$<keyword>		- various keywords
 ``````````````````````````````````````````````````````````````````
 For ATLAS (from web)
 ```
@@ -35,6 +38,7 @@ For Compass GUI :
 	we need to connect it with local MongoDB ( for viewing all info present on local)
 	we can create db and upload collections and data too
 	we can fetch all data in it from mongo shell of local terminal 
+	we can even query the collections
 ```````````````````````````````````````````````
 Schema versioning pattern		- to update from versions
 Bucket Pattern
