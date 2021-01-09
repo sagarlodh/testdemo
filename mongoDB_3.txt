@@ -1,0 +1,8 @@
+Aggregation frameworks
+``````````````````````
+most powerful tool that MongoDB offers
+
+we can group docs in collections
+we can add additional fields during grouping
+we can process docs in several stages one by one
+ver fast
