@@ -2,9 +2,18 @@ NOSQL / MongoDB
 `````````````````````````````
 non-relational DB
 schema less 
+avoids joins
 	aggregate oriented : key-value / document / column-family (ACID inside independently)
 	graph oriented : graph (follows ACID)
 NOSQL follows 'BASE'
 mongoDB is document type
-
+easy to scale
+used for distributed data stores with huge storage req.
+Mongo DB supports JSON mostly....also BSON (binary JSON)
+uses key-value and collections databases
+no triggers
+it is the one of the best-fit for hierarchial data
+can be scaled horizontally
+MongoDB uses 'CAP' theroerm : consistency, availability, partition tolerance (only two u will get)
+encryptions present and failover mech too
 
