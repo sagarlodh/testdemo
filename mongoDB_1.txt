@@ -3,13 +3,22 @@ Commands for MongoDB
 show dbs				- list DBs (DBs with no data will not be shown)
 use <dbname>			- create DB
 db.user.insertOne({"name":"ramesh"});	- to insert data[name as ramesh]
-db.user.find()			- to see all docs from the collection
+db.user.find();			- to see all docs from the collection
 show collections			- to show the curr collections
+db.createCollection('<dbname>');
+db.<dbnamae>.insert({"name":"pi"}, "version":"2020"});
+{upsert: true}		- to add the document to the collection or to create a new one if not present
 ``````````````````````````````````````````````````````````````````
 For ATLAS (from web)
 ```
 1] create a cluster
 2] define network access
 3] define database access
-	
+```````````````````````````````````````````````
+Schema versioning pattern		- to update from versions
+Bucket Pattern
+	-Tabuar approach
+	- Document approach
+Computed Pattern can also be used
+
 
