@@ -20,5 +20,9 @@ Bucket Pattern
 	-Tabuar approach
 	- Document approach
 Computed Pattern can also be used
+```````````````````````````````````````````````````````````````````
+Data Types for Mongo DB:
+
+
 
 
