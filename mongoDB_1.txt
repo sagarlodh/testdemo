@@ -1,0 +1,7 @@
+For ATLAS (from web)
+```
+1] create a cluster
+2] define network access
+3] define database access
+
+
