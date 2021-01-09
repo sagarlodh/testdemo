@@ -46,7 +46,7 @@ Bucket Pattern
 	- Document approach
 Computed Pattern can also be used
 ```````````````````````````````````````````````````````````````````
-Data Types for Mongo DB:
+Data Types for Mongo DB:    alias (int, double, etc....)     keyword num concept
 `````````````````````````````````````````
 Capped collections : high throughput transactions
 	db.createColection('<collectionname>', {capped:true, size:<memory>, max:<no of doc>})
