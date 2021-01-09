@@ -1,0 +1,10 @@
+NOSQL / MongoDB
+`````````````````````````````
+non-relational DB
+schema less 
+	aggregate oriented : key-value / document / column-family (ACID inside independently)
+	graph oriented : graph (follows ACID)
+NOSQL follows 'BASE'
+mongoDB is document type
+
+
