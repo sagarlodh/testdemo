@@ -1,2 +1,35 @@
 Indexes
 ``````````````````
+	" basically concept of a type of a collection which comprises of documents where
+	  a particular value is taken (type of primary key in SQL)....so when we need a 
+	  document, we query the index value and the search is performed in the 
+	  index collection....on retrieving the req index, we are then pointed to the 
+	  respective document "
+improve query exec
+known as IXSCAN
+	-full doc scan is COLLSCAN
+stores sorted field values
+uses B-tree data structure
+we can aff multiple fields as indexes
+
+Default index	:	_id
+    - we can change the _id of a doc as our need bt it needs to be unique
+    - can not be deleted 
+
+db.<collectionName>.getIndexes() 					- an array of objects (index)
+db.<collectionName>.createIndex( { <keyname>: [1/-1]}, <options> ) )	- to create an index in ascending/descending
+Options :
+	{ background: true }		- to not block other ops
+	{ unique: true }		- to create an unique index
+	{ name: "<indexName>" }	- to create a custom index
+Query performance :
+	db.<coll>.explain().<method>		- tells us how the query is performed
+Delete Indexes :
+	db.<collec>.dropIndex( { <fieldName>: 1 } )	- drop this index
+	db.<collec>.dropIndexes( )			- drop all indexes
+
+
+
+
+
+
