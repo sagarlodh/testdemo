@@ -28,7 +28,8 @@ use <dbname>			- create DB
 db.user.insertOne({"name":"ramesh"});	- to insert data[name as ramesh]
 db.user.find()			- to see all docs from the collection
 show collections			- to show the curr collections
- 
+`````````````````````````````````````````````````````````````````
+
 
 
 
