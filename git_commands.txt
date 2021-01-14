@@ -1,7 +1,7 @@
 git version
 touch <filenamae>
 git init					- to set the above directory as REPO
-git status
+git status					- to see which files are in staging area or not
 git log					- to see actions 
 git add .					- stage all files
 git add demo.txt				- stage this text file
@@ -10,14 +10,14 @@ git commit -m "<messsage>"			- commit the staged file
 git commit -a -m  "<message>"		- directly commit any tracked files
 git rm --cached demo.txt			- remove file from local repo
 git rm <filename>				- remove file from WD
-git remote -v				- to display the names of origin
-git remote
-git remote add origin <https>
-git push origin master
-git remote set-url <newname> <https>
-git config
-git help config
-git config --global user.<parameter> "<value>"
+git remote -v				- to display the names of origin with link
+git remote				- to display the names of origin
+git remote add origin <https>			- to add new origin with link
+git push origin master			- to push the commited files/folders to online repo
+git remote set-url <newname> <https>		- to edit the originname/url
+git config					- to show all working of cmds
+git help config				- similar
+git config --global user.<parameter> "<value>"	-
 git branch 				- shows all branch
 git branch <branchname> 			- to create a new branch
 git checkout <branchname> 			- to change branches [should have been committed]
@@ -33,7 +33,7 @@ git merge <branchname>			- three way merge
 git fork					- 
 git clone <https link> 			- to pull into local WD directory from specific link
 git pull 					- up to date check
-git pull origin master			- to pull the contents of curr repo
+git pull origin master			- to pull the contents from curr repo into WD through merge
 alias graph = "<git command>"		- to create a useable name for long cmds
 git stash					-
 git rebase <branchname>			- to pull changes into local repo
