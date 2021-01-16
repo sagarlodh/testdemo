@@ -1,0 +1,30 @@
+Create "School Management System" :
+    - Students
+    - Teacher
+    - Funds
+
+// Money management system for school
+    - keep track of students total fees
+    - fees already paid
+    - teachers salary
+`Classes`
+// School
+    - Teachers
+    - Students
+    - Total money earned
+    - Total money spent
+        - {teachers salary}
+
+// Teacher
+    - id
+    - name
+    - salary
+
+// Student
+    - id
+    - name
+    - std
+    - fees paid
+    - fees total
+
+// OOPs is used
