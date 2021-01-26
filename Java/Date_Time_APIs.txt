@@ -1,0 +1,54 @@
+- immutable and thread safe
+- java.time ----> package
+
+[1] Local Date :
+````````````````
+- represents date in ISO format
+- YYYY-MM-DD
+- thread safe
+	Ways to create instance :
+		- Local.now()
+		- Local.now(clock)
+		- Local.now(zoneId)
+		- LocalDate.of(...)
+		- LocalDate.parse(...)
+- we can also use APIs to add or remove days months, years after creation of objects
+
+
+[2] Local Time :
+````````````````
+- returns Time
+- same ways for instance such as Local Date
+
+
+[3] Local Date Time :
+````````````````
+- returns Date and Time
+- same ways for instance such as Local Date
+
+
+[4] Zoned Date Time :
+````````````````
+- returns zonal date and time
+- various APIs to explore
+
+Period and Duration :
+```````````````````````
+- various APIs we can use to get period of time in terms of years,months,days
+	and duration in terms of hours,minutes,seconds etc..
+
+Date and Calender :
+``````````````````````
+- Date d = new Date();
+- Calender c = new GregorianCalender();
+- more APIs
+
+Date and Time Formatting :
+`````````````````````````````
+- we can format as per our requirement
+- as well as in any pattern
+- need to get the APIs
+
+
+
+ 

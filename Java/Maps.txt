@@ -1,0 +1,94 @@
+Ways to iterate through Map :
+```````````````````````````````````````
+[1] using Entry Set
+	Set<Entry<Employee, Dept>> entrySet1 = <mapObj>.entrySet( );
+	for (Entry<Employee, Dept> entry : entrySet1) 
+	{...// print keys and value using 'entry' object.......}
+
+[2] using Key Set
+	Set<Employee> keys = <mapObj>.keySet( );
+	for (Employee key = keys) {
+	sout(key);
+	Dept value = <mapObj>.get( key );
+	sout(value);
+
+[3] using lambda exp
+	<mapObj>.forEach( ( key,value ) -> { 
+		sout(key);
+		sout(value) 
+	} ) );
+
+`````````````````
+Hash Maps ( O(1) )
+``````````````
+- insertion order is not maintained
+- not synchronized
+- can insert 1 key as NULL and multiple NULL val
+- uses hashCode to calculate a hash value
+- equals() is called on :
+	- get() : whose value is to be retrieved
+	- put() : key already exists or not
+- hashing collision where one hash key has multiple values
+- within a bucket---> inserted as Entry Objects containing <key,value>
+- hashCode() and equals() methods need to be overridden , 1 cannot be overrided
+	without the other
+- if hashCode generated is same, then all data put into single bucket
+
+``````````````````````````````````````````
+Load Factor : till wt load, HashMap can allow elements to be put in it before its
+				size is increased ------> 0.75 (75%)
+
+Default Capacity : 16 buckets
+
+rehashing occurs at 75% occupancy
+hashMap grows in power : 2^n , n=4 and n++
+
+``````````````````````````````````````
+Linked HashMaps :
+`````````````````
+- insertion order is maintained unlike Hash Maps
+- Contructor acts as a 'Cache' by setting 'True' in the 'acessOrder' parameter
+- not synchronized			// can be done using collections.synchronizedMap()
+- fail fast
+
+`````````````````````````````````````````````````
+Tree Maps :
+``````````````
+- is a Red-Black Tree
+- objects are stored in sorted order by key or can be overridden for other parameter (have to implement Comparable Interface)
+- doesn't allow NUll as key unlike HashMap & LinkedHashMap
+- not synchronized and fail fast
+- used for higher accessibility for Maps like getting lower & higher keys,sub maps,etc., not generally used
+
+`````````````````````````````````
+Hash Table :
+```````````````
+- cannot add NULL as either 'Key or Value'
+- thread safe (all methods are synchronized [locked] )
+- therefore 'fail safe'
+- does not maintain insertion order
+
+``````````````````````````````````````````````
+Concurrent Hash Map :
+`````````````````````
+- advanced version of Hash Map whose operations are Thread Safe
+- better performance than Hash Table
+- does not maintain insertion order
+- cannot add NULL as either 'Key or Value'
+- new locking strategy [ not all methods are locked , only some segment is locked ]
+	( greater shared access )
+- 16 buckets , seperate locks for seperate segments
+- parameters ( initialCapacity, loadFactor, concurrencyLevel	)
+	// concurrency level - number of threads accessing the Hash Map ------> default value - 16
+		// therefore all seperate 16 threads can work on 16 diff segments at a time
+
+- 1 drawback is that due to concurrency, recent value is doubtful as there can be
+	overlapping methods
+- 'read and write' maybe overlapp , but 'write and write' cannot be overlapp
+- therefore 'fail safe'
+- it is recommended when there are more READ ops than write
+- sometimes when using many operations or threads even in Concurrent HashMaps somtimes these might not be
+		thread safe, so we need to use ATOMIC Operations to turn them synchronize i.e, thread safe
+
+
+

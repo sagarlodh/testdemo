@@ -1,0 +1,36 @@
+Weak Hash Map :
+```````````````````
+- 1 NULL as a key and multiple NULL as values
+- fail fast iterator
+- maintains insertion order unlike Hash Map
+
+Identity Hash Map :
+```````````````````````
+- special implementation of Map which doesn't use '@hashCode' and '@equals(obj)' as other maps
+- uses 	[ equality operator '==' ] 	to compare keys and values
+- faster as reference quality check instead of logical equality.
+- keys doesn't need to be 'Immutable'
+
+
+Enum Map :
+```````````````
+- A specialized Map implementation for use with enum type keys
+- maintains order
+- not synchronized i.e not thread safe ---> fail safe
+- high performance, faster than Hash Maps
+- doesn't allow NULL as key
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

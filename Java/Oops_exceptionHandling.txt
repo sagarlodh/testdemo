@@ -1,0 +1,75 @@
+OOPs Concepts
+`````````````````````````
+Object			Class			Association
+Inheritance		Polymorphism		Aggregation
+Encapsulation		Cohesion			Composition
+Abstraction		Coupling
+``````````````````````````
+Exceptions
+`````````````````
+try{
+	//exception generating code
+}catch(Exception e){
+	e.printStackTrace();
+}finally{
+	//code to be executed regardless
+}
+
+** e.printStackTrace()	-	sout exception as it should be
+** sout<e.fillInStackTrace()>	-	sout exception in a clear formatted way
+** sout<e.getMessage()>	-	sout exception mess only
+
+custom exception :
+``````````
+catch(<typeOfException> <variable>){
+	// code
+	// sout<variable.fillInStackTrace>;
+}
+
+**throw	-	an object succeeds it
+	< throw new <exception>; >
+	// within the code
+	// throws during runtime, and searches for handler
+**throws	-	a class or a nuber of classes succed it
+	< psv <fucn1()> throws <exception1>,<exception2>,<exception3>...<> >
+	// within the signature
+	// method may throw exception, calling method provides 'handling'
+
+**final	- can be used with variable, method and class
+	- can't reassign once declared
+	- blank final variable must be initialized
+	- final class can't be a subclass
+
+**finally	- part of exception handling
+	- used with try-catch block
+	- will be executed always
+	- used for cleanup process
+
+*finalize	- actually a protected method
+	- we can override the class
+
+we should close exceptions
+	and log exception messages
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

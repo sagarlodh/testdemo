@@ -1,0 +1,21 @@
+we can use JDBC statements and connections to read and update
+ from the DB but this required hardcoding
+
+bt idfwe have dynamic queyr which has placeholder or parameters,
+in tht case we should go for Prepared Statements
+- create a prepared statement
+- inserting parameters
+- executing the statement
+- reusing the statement
+- prepared statment performance
+- Syntax :
+``````````
+	String sql = "select * from employee were employee_id = ? ";
+	PreparedStatement p = connection.prepareStatement(sql);
+	p.setLong(1,<value>);			// 1 here denotes the first index parameter
+
+These statements are fast..as multiplr pasrsing of statements are not needed
+
+
+
+

@@ -1,0 +1,82 @@
+class diagrams
+`````````````````````````````````````````````
+	- attributes
+		-name:string
+	- methods
+		-setName()
+'-'  : private
+'+' : public
+'#' : protected
+'~' : default
+Realationships:
+	- inheritance		- include
+	- Association		- extend
+	- Aggregation		- generalization
+	- Composition
+Multiplicity ;
+	- 0 .. 1		- n 	- 0 .. *	
+	- 1 .. *		- m .. n
+````````````````````````````````````````
+Use Case diagrams :
+`````````````
+	- rectangle : system (anything)
+	- actor
+	- oval : usecase
+	- relationships
+````````````````````````````````````````
+Sequence diagrams :
+`````````````
+	emphasises the time ordering of messages
+```````````````````````````````````````````````
+Collaboration Diagram :
+````````````````
+	- how ovjects are going to work together to accomplish said tasks
+	- to show changing specfic task that objects will have thru use of system
+```````````````````````````````````
+State Transition Diagram :
+`````````````````
+	- possible states
+	- events causing trasition
+	- action that result from a state change
+```````````````````````
+Activity Diagrams :
+```````````
+	- initial node	- incoming edge	- outgoin edge
+	- action		- merge		- guard condition		- fork
+	- interupting event	- time event	- object node		- object state
+	- flow final node	- partition	- annotation		- connector
+	- object OP/IP pin	- send/receive sig	- expansion region
+`````````````````````````````````````````````````````````
+Component Diagrams :
+````````````
+- MUST BE LOOSELY COUPLED AND EASILY SWAPPAble
+- req interface (dependency arrow) / provided interface (realization arrow) (full circle)
+- assembly connctors 	- realizations	- ports
+- delegation connectors	- 
+```````````````````````````````````````````
+Deployment Diagrams :
+``````````````
+- to show how SW and HW work together
+- can fluctuate depending on how people use systems
+- hardware node	- we can name nodes,dbs,comm lines,artifacts
+- manifest (to implement a component)		- deployment spec uses <deploy> to deploy artifact
+- exec environment (final goal)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

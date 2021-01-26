@@ -1,0 +1,74 @@
+helps us to define type parameters when defining classes, interfaces and methods.
+
+Eg:	List<typeOfParameter> <variable> = new ArrayList<>();
+
+	- type of elements stored in the List
+Type Parameters:
+`````````````````````````
+1] E - Element
+2] K - Key
+3] N - Number
+4] T - Type
+5] V - Value
+6] S,U,V - 2nd, 3rd and 4th types
+
+Adavantages :
+	- stronger type check at compile time
+	- explicit type casting isn't required
+
+Rules for Generic Interface :
+1] generic interface implement should always be generic
+2] if specific parameter used, then normal class can be used
+3] a genreic class implementing a generic interface can have multiple params 
+
+Rules for Generic Method :
+Eg:	public <typePara> void <methodName>(< typePara[] <variable> >){} 		// no static bcz we can call by obj
+1] generic method can be created inside a non generic class too
+2] generic methods can add more parameters of their own 
+3] after access modifier we need to declare as shown in example
+`````````````````````````````````````````````
+Bounded Type Parameters :
+	- used to restrict the types that can be used with generic methods, classes
+~ to create a bounded type, we need to provide an upper bound which acts as a restriction
+for types.
+~ therefore, only subclasses of this super class upper bound can be used as a type for subsequent
+methods.
+	ex: 		< <typePara> extends <upperboundSuperClass> > 
+~ type parameter can have multiple bounds
+````````````````````````````````````````
+WildCards :
+	- '?' represents unknown type
+	- can be used as return type
+	- type of paramenter, local variable
+types :
+	1] upper bounded		ex: < List<? extends <upperboundType>> <variable> >
+	2] lower bounded		ex: < List<? super <lowerboundType>> <variable>>
+	3] unbounded		ex: < List<?> <variable> >
+``````````````````````````````````````````````````````````````````````````````````````````
+Type Erasure :
+
+1] replace all unbounds with objects and first bound if bounded
+2] inserts type casts if necessary to preserve 'type safety'
+3] generate 'bridge methods' to preserve polymorphism
+```````````````````````````````````````
+Bridge Methods :
+
+~ when compiling a class/interface that extends a parameterized class/interface,
+~ compilier may need to create a Bridge method(synthetic method) as a part of the
+~ Type Erasure process.
+
+because when type erasure occurs, polymorphism doesn't stay intact, therefore bridge methods
+are used to keep polymorphism as at is even when type erasure happens
+
+
+
+
+
+
+
+
+
+
+
+
+

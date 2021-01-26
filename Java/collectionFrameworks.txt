@@ -1,0 +1,56 @@
+Collecctions in JAVA
+``````````````````````````````
+The Collection in Java is a framework that provides an architecture to store and manipulate the group of objects.
+
+Java Collections can achieve all the operations that you perform on a data such as searching, sorting, insertion, manipulation, and deletion.
+
+Java Collection means a single unit of objects. Java Collection framework provides many interfaces (Set, List, Queue, Deque) and classes 
+(ArrayList, Vector, LinkedList, PriorityQueue, HashSet, LinkedHashSet, TreeSet).
+```````````````````````````
+JCF from JDK [ 1.2 ]
+````````
+A set of classes and interfaces that implements commonly reusable collection data structures
+
+- works in a manner of library
+- JCF provides both interfaces that defines collections and classes that implement them
+
+advantages :
+	- APIs				- reduces programming effort		- increases speed and qulity
+	- support algebric calculation		- thread safety			- immutablity
+	- extensibility
+````````````````````````````````````````````
+All interfaces and their sub domains :
+````````````````````````````````````````````````````
+Iterable <T>:
+	- Collection
+		- set
+			- sortedSet
+		- List
+		- queue
+			- blockinQueue
+````````````````````
+JCF also comprises
+``````````````
+Map<K,V> :
+	- sortedMap
+	- concurrentMap
+``````````````````````````````````````````````
+Thread Safe implementations :
+1] CopyOnWriteArraySet<E>
+2] Vector<E>
+3] CopyOnWriteArrayList<E>
+4] BlockingQueue
+5] HashTable<K,V>
+6] ConcurrentHashMap<K,V>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,73 @@
+Object gets created in 'Eden Space' in heap
+
+[1] Strong References :
+````````````````````````````
+- not eligible for garbage collection
+	(we can make it for garbage collection by assigning 'NULL' to the object)
+
+	private static void strongReference() {
+		Employee emp = new Employee(1441, "KK");//Strong reference
+		emp = null; // Eligible for GC
+	}
+
+[2] Weak References :
+````````````````````````````
+- object can be retrieved back from the memory with '<weakRef>.get()'
+- we can also make it for garbage collection by assigning NULL
+
+	private static void weakReference() {
+		Employee emp = new Employee(1441, "KK");
+		WeakReference<Employee> weakReference = new WeakReference<Employee>(emp);
+		System.out.println(weakReference.get());
+		emp = null;
+		System.gc();
+		System.out.println(weakReference.get());
+	}
+
+[3] Soft References :
+````````````````````````````
+- object can be retrieved back from the memory with '<softRef>.get()' but not until JVM
+	badly needs memory, object will stay there till then
+
+	private static void softReference() {
+		Employee emp = new Employee(1441, "KK");
+		SoftReference<Employee> softReference = new SoftReference<Employee>(emp);
+		System.out.println(softReference.get());
+		emp = null;
+		System.gc();
+		System.out.println(softReference.get());
+	}
+
+[4] Phantom References :
+````````````````````````````
+- we caan get the ref of phantomRef , directly through API
+- therfoere we need a ref queue, garbage collector add phantomRef to a QUEUE
+- when an obj was removed from memory
+- to avoid using finalize method
+	
+	private static void phantomReference() throws InterruptedException {
+		Employee emp = new Employee(1441, "KK");
+		ReferenceQueue<Employee> referenceQueue = new ReferenceQueue<Employee>();
+		PhantomReference<Employee> phantomReference = new PhantomReference<Employee>(emp, referenceQueue);
+		System.out.println("Phantom reference deleted:");
+		System.out.println(phantomReference.get());
+		
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

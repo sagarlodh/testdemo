@@ -1,0 +1,60 @@
+Array Deque :
+`````````````
+- implements Deque
+- insertion and removal from both ends
+- not thread safe
+- no capacity restrictions
+- NULL not allowed
+- can be used as QUEUE and STACK both
+
+Linked Blocking Deque :
+```````````````````````
+- deque which provides blocking as well
+- imprved version of Array Deque
+- thread safe
+- NULL not allowed
+
+STACK :
+```````
+- legacy class
+- LIFO
+- push(),pop(),peek()..etc
+
+Concurrent Skip List Map :
+``````````````````````````
+- no NULL keys or values
+- thread safe
+
+Concurrent Skip List Set :
+``````````````````````````
+- is a scalable concurrent set 
+- thread safe
+- sorted by natural ordering or by Comparator (if given)
+- no NULL values
+- unique values cn only be stored
+- internally uses Concurrent Skip List Map
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

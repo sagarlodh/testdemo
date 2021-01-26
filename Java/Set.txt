@@ -1,0 +1,53 @@
+Enum Set :
+``````````````
+- specialized set with single enum type
+- an abstract class
+- two :
+	1) Regular enum set -----> if <64
+	2) Jumbo enum set   -----> if >64
+- ordered
+- never throws ConMod Exception
+- not synchronizd	---> not thread safe
+- some factory methods :
+	1) EnumSet.range(... , ...);
+	2) EnumSet.of(... , ...);
+	3) EnumSet.complementOf(...);
+
+
+Copy On Write Array Set :
+````````````````````````````
+- form of set
+- thread safe ------> fail safe
+- useful when set is small with more read only ops by threads
+- similar workin as COW ArrayList as it uses it 
+- does not support remove op
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

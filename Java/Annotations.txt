@@ -1,0 +1,36 @@
+introduced after v1.5
+
+can be used on classes, methods and fields
+
+'@override' 			-	for compile time information of overriding
+'@SuppressWarnings("unchecked")'	-	to supress warnings on compiling
+'@Deprecated'			-	to better not use the method
+'@FunctionaInterface'		-	to have an interface with only 1 method
+```````````````````````````````````````````````````````````````````````````````
+Custom Annotations :
+````````````````````````
+@Target(ElementType.TYPE)				// Type = class		// level on which it should be used
+@Retention(RetentionPolicy.RUNTIME)					// till what time it should work
+@interface <annotationName> ( )
+{ 
+	String os() default "Syska";
+	int version() default 1;
+}
+ now we can use @<annotationName> with classes,methods etc...
+
+	- annotations with no value are called Marker Annotation
+	- one value annotations are called Single Value Annotation
+	- similarly Multi Value Annotation
+	- if we provide values while using this annotation, previous values will be overridden
+
+- to access the annotation value, we need to create a Class object
+ex:	
+	<Annotation used class> obj = new <Annotation used class> ( ... , ... );
+	Class c =  obj.getClass();
+	Annotation an = c.getAnnotation( <annotationName>.class );
+	<annotationName> obj1 = (<annotationName>) an		// type casting
+	sout( obj1.out() )
+
+
+
+

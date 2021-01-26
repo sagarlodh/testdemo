@@ -1,0 +1,109 @@
+Java Data Base Connectivity :
+``````````````````````````````
+helps us to connect to RDBMS via APIs
+- predefined query style
+______________________
+JDBC APIs Core Parts :-
+```````````````````````
+[1] Drivers :
+	````````
+	A collection of Java classes that helps us to connect to a DB
+	- it implements a lot of JDBC interfaces
+	- types :
+		[1] JDBC-ODBC Bridge Driver : 
+			````````````````````````
+				- oldest from 			- many layers present		- JDBC --> ODBC before calling
+				- poor performance		- less portable
+
+		[2] JDBC-Native API :	'when T3 and T4 cant be used'
+			`````````````````
+				- after type 1			 		- imporved performance by reducing comm layer
+				- also known as Native API 		-  less portable and platform dependent
+		
+		[3] JDBC-Net Pure Java : 'used for Multiple DBs'
+			````````````````````
+				- after type 2					- completely written in Java
+				- uses 3 tier approach			- also known as Net Protocol JDBC Driver
+					client--> server--> DB
+
+		[4]	All Java Driver :	'used for 1 type of DB'
+			````````````````
+				- mordern driver 				- implemented in Java			- uses Native protocol
+				- all DB calls in one JAR file	- light weight					- best performance
+				- portable						- platform independent
+
+[2] Connections :
+	````````````
+	once a JDBC is loaded and initialized, we need to conncet to a DB by obtaining a 'Connection' via
+	JDBC APIs and Driver.
+	- all comm to the DB happens through a connection
+	- there can be multiple connections 
+	- Steps :
+	``````````
+		[1] Loading the JDBC driver :
+				- Class.forName("com.mysql.jdbc.Driver");
+				- we need to load the driver only once
+
+		[2] Opening the Connection :
+				- mention the details like user and password for establishing connection
+					'DriverManager.getConnection(url, user, password)'		---> getConnection can be overloaded
+					we can also make a properties file and load the details from it using Properties object
+						- new property object
+						- load into property object from FileInputStream
+						- get property
+						- connect using the properties
+		
+		[3] Closing the Connection :
+				- connection.close() ---> to close the connection
+	
+	we can define wo classes --
+		- one for establishing the connection using Connection objects
+		- another for the MAIN method to to call the Connection object and
+		print successful on establishing connection
+
+[3] Statements :
+	```````````
+	we use these to execute queries and updates to the DB
+
+[4] Result Sets :
+	````````````
+	this is the Result from thw wuery in form of a Set
+	- we can traverse it later
+
+_________________
+JDBC Use Cases :-
+``````````````````
+[1] query the DB :
+	`````````````
+	reading from the DB
+
+[2] query the DB for metadata :
+	``````````````````````````
+	reading the information about the structure of the DB
+
+[3] update the DB :
+	``````````````
+	writing to the DB
+
+[4] perform transactions :
+	`````````````````````
+	a transaction is a group of multiple updates or queries into a single action
+	- either all get executed or none of them get executed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,30 @@
+- enables functional programming
+- readable and concise code
+- better APIs
+- support for parallel processing
+- functions a values
+- ' -> '
+- use Intefaces with same return type and one method
+- typep inference is done
+- '@FunctionaInterface' - to denote to Functional interface
+- wrapper concept
+- closure concept
+- 'this' ref inside the lambda points to static main and gives error
+	outside as other seperate method , it points to the strong reference of MAIN
+- we can use method reference while calling static functions
+- we can use 'forEach' with lamda to print all elements in the LIST
+- we can use STREAMs for doin multiple ops on each element in the list as well
+- 
+
+
+
+
+
+
+
+
+
+
+
+
+

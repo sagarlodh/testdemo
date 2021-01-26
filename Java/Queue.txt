@@ -1,0 +1,78 @@
+Priority Queue :
+``````````````````
+- implements queue
+- based on Priority Heap
+- null is not allowed
+- not synchronized -------> not thread safe
+- unbounded and grows dynamically as elements added 
+- used when needed to maintain a queue with sorted elements
+	based on (priority)
+- if comparator(need to implement in another class) not provided in constructor 
+	then natural order (Comparable) is used to order
+- HEAD item is least item
+- offer() and add() for insertion
+
+Concurrent Linked Queue :
+`````````````````````````
+- unbounded
+- thread safe	-----> fail safe
+- stored elements as linked nodes
+- FIFO	----> queue retrieval op gets HEAD element
+		----> queue removes op removes the LAST element
+- when many threads will share access to a common collection
+
+BLOCKING QUEUE :
+````````````````
+Types and points :
+
+	[1]Synchronous Queue :
+	``````````````````````
+	- doesn't have internal capacity
+	- only 1 element can be inserted for consequent removal
+	- no NULL elements can be inserted
+	- each insert op must wait for same remove op -----> and during this we can't add anymore element [Blocked]
+	- returns NULL when retrieved by PEEK
+	- iterator returns empty itrator
+	- two constructor	---> [1] default	
+							 [2] fairness - True for FIFO
+	
+	[2]Array Blocking Queue :
+	`````````````````````````
+	- bounded blocking queue which uses Array internally
+	- FIFO order
+	- initial capacity need to be given and cant be changed later same like array
+		if more elements inserted then blocking will happen
+	- three constructor	---> [1] capacity
+							 [2] capacity & fairness - True for FIFO		
+							 [3] capacity & fairness & collectionObject
+	
+	[3]Linked Blocking Queue :
+	``````````````````````````
+	- optionally bounded
+		i.e, 2 constructors :	[1] default constructor --> unbounded
+								[2] capacity ----> for making it bounded if specified
+	- uses LINKED NODEs internally
+	- FIFO order 
+	
+	[4]Priority Blocking Queue :
+	````````````````````````````
+	- thread safe
+	- same ordering as Priority Queue ()
+	- unbounded
+	- 4 constructors : [1] default constructor  --> natural ordering
+					   [2] capacity
+					   [3] capacity, comparator
+	- null is not allowed
+
+	[5]Delay Queue :
+	````````````````
+	- unbounded
+	- only store elements of type DELAY
+	- an element can only be retrieved from delay queue when it's delay has expired 
+	- we need to override getDelay() and compareTo()
+	- the  HEAD is the element whose delay is max+
+	- if no delay is expired, there is no HEAD and if poll() will fetch 'NULL'
+	- expiration occurs when getDelay() returns '<=0' for an element
+	
+
+

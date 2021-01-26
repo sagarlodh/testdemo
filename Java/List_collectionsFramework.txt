@@ -1,0 +1,80 @@
+List and Set are synchronized
+
+ArrayList
+````````````
+- default capacity 10, not if mentioned
+- increases by 50% of old capacity on needing to grow
+- on removing, elements move left
+- non legacy class
+- non-synchronized , not thread safe
+
+**both ArrayList and Vector are :
+	- iterator, listIterator classes are Fail Fast
+	- ( we should use created [Iterator/listIterator] to remove,add,update elements and not list obj )  
+
+Vector
+```````````
+- default cap 10, not if mentioned
+- legacy class
+- increases by 2X when needed to grow
+- can manually define capacity and limit by which it will grow when overflown
+- thread synchronized
+
+LinkedList
+`````````````
+- doubly linked list
+- Insertion, updation and deletion operation is faster than ArrayList (new array made and old data copied) 
+- used for frequent operations, use ArrayList for holding duplicates and retrieving faster
+
+**searching is faster in ArrayList
+**memory consumption high in LinkedList
+**iterator, listIterator classes are Fail Fast ( for both )
+
+Copy On Write ArrayList :
+`````````````````````````````````
+- synchronized thread safe application
+-fail safe
+- takes a copy of ArrayList and performs operation on it
+- expensive operation
+- has a thread safe iterator 
+	- on creation of iterator, the state is saved and is never changed during lifetime of iterator
+		(snapshot style iterator)
+	- unsupported op exception on addition,removal or update through Iterator
+	- this can happen with list obj though	{reverse for ArrayList}
+
+**we won't get Concurrent Modification Exception on COW ArrayList
+** it is slower than ArrayList
+
+Iterator :
+``````````
+- only remove		- can not obtain indexes
+- only move forward	- fail- safe
+
+ListIterator :
+`````````````````
+- remove ,add and replace	- can only be used by List implemented classes
+- move both ways		- can obtain indexes	- fail fast
+
+Enumeration :
+```````````````````
+- only traverse , no modifications	- can be used on Vector, Stack, HashTable
+- hasMoreElemements( )		- nextElements( )
+- fail-safe in nature			- JDK 1.0
+
+Fail-Fast & Fail-Safe (regarding Concurrent Modification):
+```````````````````````````
+'mod' flag tells Structured Modification
+				FF	FS
+			`````````````````````````````````````
+ConMod Excep 		: 	yes	no
+Clone obejct     		:	no	yes
+Memory overhead 		:	no	yes
+eg :		Hash Map, vector,arraylist,	COWArrayList,Concurrent HashMap
+```````````````````````````````````````````
+
+
+
+
+
+
+
