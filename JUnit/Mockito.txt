@@ -1,0 +1,53 @@
+We need to add MOCKITO dependency along with JUnit
+ <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>1.10.19</version>
+            <scope>test</scope>
+        </dependency>
+
+STUB :
+``````
+-a STUB is a sample implementation of the a service basically the 'Dependency', which return some dummy data
+		a class with some values
+-it is used for Unit Testing
+-we create it in test/java/
+
+MOCK :
+```````
+- concept of defining and returning values dynamically in the TEST and checking them, therefore
+	we do not need to define a hardcoded STUB
+- argmument matchers concept for checking for multiple fetched values
+- by default, for all methods that return a vlaue, a mock will either return null, a primitive wrapper value
+	or an mpty collection
+- when ...  thenReturn ....
+
+BDD (Behaviour DriveN Development) :
+````````````````````````````````````
+- GIVEN			--> 	the data
+- WHEN			--> 	called
+- THEN			--> 	do this
+
+- given ...  willReturn ....
+
+Some more Annotation for MOCK :
+`````````````````````````````````
+	helps us to autoWire variables, assignings, etc,.
+
+
+- @Mock 				: we can use this to declare a 'mock' for a class and no need to assgin it inside every method for further use
+							@Mock
+							<type> <varname>
+- @Runwith				: for above thing to work, this should be placed above the class with @Runwith(MockitoJUnitRunner.class)
+- @InjectMocks			: helps us in automatically assigning the mock used method to the variable this is declare with
+							@InjectMocks
+							<type> <varname>
+- @Captor				: to produce captors for storing and rechchecking stuff 
+
+
+
+
+
+
+
+
