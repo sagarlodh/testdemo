@@ -1,0 +1,106 @@
+Junit 5 is the latest framework
+
+expected value = actual value
+__________
+|Process  |:
+````````````
+[1] run tests
+[2] verify tests
+[3] alert the DEV if failed
+
+v4.0 > 10 years && monolithic arch.
+
+JUnit 5 Architecture :
+````````````````````````
+We run test on the PLATFORM from IDE by hardcoding the test cases
+
+- JUnit APIs are called 'JUPYTER'
+- we can use older JUnit 4 with 'VINTAGE'
+- we can even use 3rd party tests with our own extensions
+
+---> copy below code and paste in 'pom' file and run updates...
+---> create a package --> create a class
+	<properties>
+        <maven.compiler.source>15</maven.compiler.source>
+        <maven.compiler.target>15</maven.compiler.target>
+        <junit.jupiter.version>5.7.0</junit.jupiter.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.7.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.7.0</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.2</version>
+            </plugin>
+        </plugins>
+    </build>
+`````````````````````````````````````````````````````
+-> create a test class with the same package in the src/test/java
+-> import required paths
+-> @Test -----> informs JUnit that this is a test needed to run
+-> Assertions can help us expected = actual
+-> Some Assertion methods :
+	[1] assertEquals(... , ...)				: asserts both values are equals
+	[2] assertArrayEquals(... , ...)		: asserts both arrays are equals i.e same items at same places
+	[3] assertIterableEquals(... , ...)		: asserts both iterables are equals i.e same items at same places
+	[4] assertAll( .... )					: asserts all statements under it
+
+-> test driven development method :
+	---> write structure of method
+	---> write test case
+	---> write as per test results
+
+-> Maven plugin for running tests ----> surefire (already code attached above)
+-> TEST Lifecycle :
+   ````````````````
+ 		the lifecycle within which the test instance is created, managed and destroyed		-		managed by JVM
+ 	  	- random order of executing methods
+-> bad to order tests therefore new instance for every TEST
+-> Annotations :
+   ````````````````
+   		[1] @Test 			  -	for running tests
+   		[2] Hooks         -  [a]@BeforeAll (use static before methods)   [b]@AfterAll  
+                           [c]@BeforeEach                              [d]@AfterEach
+   		[3] @DisplayName	- 	to display some names for methods
+   		[4]	@Disabled		  -	for not running test on specific method
+   		[5] @Nested			  - 	for grouping tests(can be used for nested tests inside classes)
+   		[6] @RepeatedTest	- 	for running multiple times a test method
+   		[7] @Tag 			    -	for specific testing particular tagged methods, classes.
+-> static methods does not depend on instance
+-> Conditional Execution		---> Assumtions, Assertions etc..
+-> TestInfo		: for logging tests info
+-> TestReporter : for returning test info
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
