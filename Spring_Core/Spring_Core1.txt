@@ -1,0 +1,85 @@
+- a container of beans
+Spring is known for dependency injection mainly
+	- a way in which we decouple dependency between objects so that they are not tied to each other
+
+eg : 	making a seperate drawing classs to implement the interface of Drawing by using main class
+	and calling the obj to draw
+
+- we can create objects inside spring containers and it can automate everything related to it
+
+Factory Pattern :
+`````````````````````
+skipping the new object creation by the help of 'Bean Factory' which reads from the 'XML file'
+and creates a bean(obj) and hands it over to the classs object
+
+Program :
+``````````````
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+//import org.springframework.beans.factory.xml.XmlBeanFactory;
+public class DrawingApp {
+	public static void main(String[] args) {
+		//Triangle triangle = new Triangle();
+		//triangle.draw();
+		BeanFactory fac = new ClassPathXmlApplicationContext("spring.xml");		// ApplicationContext  &  ClassPathXmlApplicationContext will also work
+		Triangle triangle = (Triangle)fac.getBean("triangle");		
+		triangle.draw();
+}}
+
+	while adding to appContext spring file ****( which should be under 'src' folder ) :
+	````````````````````````````````````````````````````````````````````````````````````````````````````````````
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "https://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+<bean id = "triangle" class = "io.org.javaBrains.Triangle"/>
+</beans>
+
+***also add JUnit to build path for the same
+`````````````````````````````````````````````
+ApplicationContext :
+`````````````````````
+- does everything Bean Factory does and more Event Notification and AOP
+
+Other Concepts :
+`````````````````````
+- We can use 'Setter Injection' by property Initialization	--->	<property name="..." value="..." />
+- also we can use 'Constructor Injection'					--->	<constructor-arg value="..." />
+	--> we can usee type property to let Spring
+	     know the type of value we input, so it can
+	     call the proepr constructor						-> <constructor-arg type="int/java.lang.String" value="..." />
+- we can inject objects as well
+- INNER Beans												---> a bean embedded inside a bean rather than using 'reference'
+- <alias name=".." alias="..."/>							---> to create a seperate alias
+- <idref="..."/>											---> to make sure there is a bean for specific id 
+- <list>..... <ref bean="..." .....<\list>					---> to add a list of beans to the list of property being followed
+___________________
+- BEAN AUTOWIRING :
+````````````````````
+	we can use ' autowire = "byName" '	---> to autowire or connect same bean name property to matching object type variableNames in a class
+	- by Type
+	- by Constructor
+______________
+- BEAN SCOPES :	< used in after bean class def>
+````````````````````````````
+[1] Singleton - only create 1 instance per bean definition	----> by default for all
+[2] Prototype - new beans instance created per call or reference
+[3} WEB AWARE CONTEXT BEAN SCOPES :
+			- Request ---> new bean per servlet request
+			- Session ---> new bean per session
+			-Global Session ---> new bean per global HTTP session
+``````````````````````````````````
+- 'Application Aware Context' interface should be implemented to get info on context used to get bean
+- this method runs for every initialization of every BEAN
+-
+-  
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,110 @@
+Annotations :
+```````````````````
+We need to use BEN POST PROCESSor so to check the Annotations being met and throw exceptions if not met
+
+[1] @Required --> the following is a required member variable, and throw an exception if not assigned
+			  --> use it and also define a bean with <bean class ="<org.springfra.....RequiredAnnotationBeanPostProcessor" />
+			  --> throws exception if not met
+
+[2] @Autowired --> inorder to wire a dependency, we use this to autowire to in the required variable
+			   --> kind of [byType] (sometimes ambiguous) if same types
+			   --> use it and also define a bean with <bean class ="<org.springfra.....AutowiredAnnotationBeanPostProcessor" />
+			   --> if multiple beans of same time, then searches for [byName] of bean
+			   		--> if name can't be changed then --> [3]
+
+[3] @Qualifer --> used to Autowire dependencies when in step [2] even [byName] match has failed or name of bean can't be changed
+			  --> @Qualifier("<qualifer_Value>")
+			  --> in XML use in the form 	--> <bean id=... class=....>
+			  										<qualifier value = "<qualifer_Value>" />
+			  										<property name....
+			  									</bean>
+
+**** need to have the org.springfra.....AutowiredAnnotationBeanPostProcessor & Required.. Annotation package for this to work
+**** also for all annotations we can use -->		<context:annotation-config/>		in XML file
+**** also to update the namespaces for using annotations we need to comment the [DOCTYPE] and replace it with
+		<beans	xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+					http://www.springframework.org/schema/context https://www.springframework.org/schema/beans/spring-context.xsd"
+			xmlns:context="http://www.springframework.org/schema/context">
+
+JSR-250 :
+```````````
+defines standard annotations that would be and should be used in different technologies
+--> import javax.annotation.*;
+
+[4] @Resource --> an annotation which we can use to inject dependencies
+			  --> can do a standard dependency injection [byName]
+			  --> if [name] not defined then by default it searches the same name as [member variable]
+			  --> @Resource(name="<beanID>")
+
+[5] @PostConstruct --> outs the method definition after initializing bean
+
+[5] @PreDestroy --> outs the method definition before initialized bean is destroyed
+				--> don't forget to register the [shutDownHooks] and use [AbstractApplicationContext] while initializing XML path
+
+Some More Annotations :
+````````````````````````
+
+[6] @Component --> declares a class as a bean, so no need of extraa creating a bean in XML
+			   --> also in XML we need to add 		--->  <context:component-scan base-package="<packageName>" /> 	this will allow Spring
+			   		to scan through all the classes to findout which classes are acting as BEANS (with the '@Component' annotation)
+
+	<Stereotype Annotations>
+	````````````````````````
+[7] @Service   		--> same as [6] but used for SERVICE Objects
+
+[8] @Repository   	--> same as [6] but used for DATA Objects
+
+[9] @Controller		--> same as [6] but used for CONTROLLER Objects
+
+``````````````````````````````````````````````````````````````````````````
+To print out info from a text.properties file :
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--> create a [info.properties] 	  file and write some properties Eg : greetings="HELLO"
+--> in XML :
+		
+		<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+			<property name="basenames"
+				<list>
+					<value>info</value>
+				</list>
+			</property>
+		</bean>
+
+--> in main class, SOUT the method ---> context.getMessage("greetings")		// as per example above
+--> we can also create this INJECTION BY TYPE by SOUT the above line in an implemented or BEAN class after declaring
+	variables of type [MessageSource] and same name as 'bean ID' and then use @Autowire to wire them and then use context.getMessage()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

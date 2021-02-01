@@ -1,0 +1,124 @@
+Bean Definition Inheritance :
+`````````````````````````````
+- bean id=... class=... parent = "..."
+	-> where parent bean properties will be inherted to the child bean
+	-> we can also override property
+- bean>
+	<property>
+		<list merge = 'true'>	-> only if we want to merge all definition of both child and parent bean
+									and this will prevent overridding of parent by 
+- bean id=...class=... parent = "..." abstract="true"
+		-> to create an abstract bean for using definition but not instantiation
+
+LifeCycle Call Backs :
+```````````````````````
+- we can create methods which run when beans been created or detroyed for cleaning up
+- for calling a mehtod before the context initializing we can 
+		[1] use AbstractApplicationContext while initializing in MAIN class and then
+				--> context.registerShutdownHook() in MAIN class ___ so that Spring knows to close the registered hook after use
+					we need to implement InitializingBean in BEAN class and define a method so that a method is called before the 
+					BEAN is initialized.
+		[2] declare and define a method in BEAN class which will act before bean initializing and then
+			bean id=... class=... init-method="<methodName>"
+
+- for closing the context we can :
+		[1] implement DisposableBean in BEAN class and then
+				--> implement destroy() method in BEAN class
+
+		[2] declare and define a method in BEAN class which will act before bean initializing and then
+			bean id=... class=... init-method="<methodName>" destroy-method="<methodName">
+
+BEAN Post Processors :
+````````````````````````
+some classes which tell Spring that there is some processing, it needs to do after initializing the bean
+- similar process to LifeCycle Call Backs process
+- create a seperate class and implement the interface BeanPostProcessor and override methods
+	-> also in XML file define a BEAN -> class="<postProcessorClassPath>"
+
+BEAN Factory Post Processors :
+````````````````````````
+this helps Spring run this even before the whole Bean Factory is initialized
+- similar process to LifeCycle Call Backs process
+- create a seperate class and implement the interface BeanPostProcessor and override methods
+	-> also in XML file define a BEAN -> class="<beanFactoryPostProcessorClassPath>"
+
+Concept of Property Files :
+`````````````````````````````
+- we can create a file and set values like [ <beanid>.<value_para>=value ] and then,
+	read this in the XML file by placing PLACEHOLDERS to the property.
+		-> property name="..." value="${<beanid>.<value_para>}"
+		-> also in XML file define a BEAN -> <bean class = "org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" >
+												<property name="locations" value="<properyFileNamePath>"
+											 </bean>
+
+Coding To Interfaces :
+``````````````````````````
+'point' class needs to be defined so as the diff other shape_classes can create a variable of [Point] type and
+implement the [SHAPE interface] so tht specific ben can be called from main class.
+
+basically what this is just instead of hardcodingly creating a bean class object can calling it from the MAIN class,
+we can create an interface with the same action method declaration and implement(override) it in seperate bean classes, so that,
+from the MAinclass, we just need to mention the type of BEAN we want ( as per ID defined in the XML) in action method to display
+( we also need to mention the bean classes which Override the action method under the INTERFACE and the INTERFACE itself 
+in the XML).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

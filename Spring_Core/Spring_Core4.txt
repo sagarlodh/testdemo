@@ -1,0 +1,139 @@
+EVENT HANDLING :
+~~~~~~~~~~~~~~~~~~~~
+
+Some Interfaces for such implementation --
+
+[1] applicationListener 				--> a class which needs to listen for events
+	
+		-> this class needs to be declared a Spring Bean eithre by defining in XML or using '@Component'
+
+[2] applicatioEventPublisher			--> a class which publishes an event
+
+		-> 
+
+[3] Class 'ApplicationEvent' can be extended for defining more custom event things by our own 'Event' class
+
+		-> to create an Event, create a seperate class extend 'ApplicationEvent'
+		-> implement the constructor
+		-> implement toString
+		-> then configure the publisher in the calling bean class (not MAIN) given tht the 'Application Listener'  is already configured
+		-> extend ApplicationEventPublisherAware --> implement methods to set the publisher
+		-> in this same bean class inside the method which will publish, use the event publisher 
+			< ApplicationEventPublishervariable >.publishEvent(<EventClass obj>) class method to publish the argument
+
+ASPECT ORIENTED PROGRAMMING :
+````````````````````````````````
+
+--> we create an ASPECT which holds the common action which is basically a class but with special privilages
+--> we also write configuration defining which aspect applies to which object and classes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
