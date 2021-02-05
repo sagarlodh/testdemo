@@ -1,0 +1,150 @@
+Exception Handling :
+````````````````````
+we can throw any exception from the controller class and then also define a class with annotation @ExceptionHandler(value=Exception.class),
+which returns an "EXCEPTION" which inturn is nothing but another customised .JSP error file
+
+@ControllerAdvice : if used on any new class, we can define all the exceptions in it and then if an exception is encountered in
+					the controller class then, it will search an exception handler in this defined class.
+					-> also we dont need to seperately define so many exceptionHandlers inside Controller cass
+
+@ResponseStatus : --> get HTTP Headers extension
+				  --> 200 OK
+				  --> can be used to send a customised status error code when an error is encountered
+				  --> EG : @ResponseStatus(value = HttpStatus.<code of the error occurred in string>)
+				  --> EG : for above example we can use --> HttpStatus.INTERNAL_SERVER_ERROR
+_______________________
+WEB SERVICE BASICS :
+```````````````````````
+a web application which allows a way to other SW app to make a call to its methods
+
+Service Provider is the one to which access is being made
+
+--> the client needs to know he exact location of the WSP
+--> the client nneds to know the signatures of all exposed methods of the WSP
+--> therfore all such information is resent in an XML file called as WSDL(web service description language) given by the dev.
+
+
+Types : [1] SOAP Web Service
+		[2] REST Web Service
+
+[1] SOAP >>>>
+```````````
+here both client and WSP use SOAP protocol to communicate with each other
+----> should happen in XML format
+----> 
+
+[2] RESTful >>>>
+``````````````
+if WSP follows all guidelines as specified in REST
+----> we can access WSP methods using REST APIs
+----> data,functionality to be accessed is knwon as RESOURCE
+----> client sends a request, WSP sends a response = Representation of Resource (actual requested data) + Additional Information (other info)
+
+We need to create methods which will use RESTful services :-
+
+	Then inside a method we can create an ArrayList of students and get name by creating objects of student class.
+	also we need to REQUESTMAPP for returning when fetched with a link (also some other formality code covered in video)
+
+	JSON REST API Annotations :
+	`````````````````````````````
+
+	We need to download & add some [JACKSON JARS] for this : video 34 onwards
+--------> We can use @ResponseBody annotation above a method to return an JSON format of the original returned JAVA OBJECT like List,Set objects etc.
+
+--------> We can use @JsonProperty above field names in a class for whose list of objects is to be returned to proper format the variable when displayed. Eg : @JsonProperty("student_name")
+				private String studentName;
+
+--------> We ecan also use the @JsonPropertyOrder({"studentDOB","studentName",...}) above class to print in this order when the object of list is returned from controller class in JSON format					
+
+--------> We ecan also use the @JsonIgnoreProperties({"studentDOB","studentName",...}) above class to ignore these fields and print other values
+
+--------> We ecan also use the @JsonInclude(JsonInclude.Include.NON_NULL) above class to include only NON NULL fields when obj is returned from controller class in JSON format
+
+--------> We can also similarly create another view method in controller class which can work as a specific '/studentName' search OP.
+			for this we can use the @PathVariable to bind the name inputted by the user into another local name and then search with it in LIST
+
+PROBLEM : We also need to ensure that these RESTful services methods should not mix with all other SpringMVC methods in the same controller 			  class. Therefore we can define them in a seperate class and use the annotation @RESTController on it.
+		  --> then we can remove the @ResponseBody annotation from these methods.
+````````````````````````````````````````````````````````````````````````````````````````
+`````````````````````````````````````````````````````````````````````````````````````
+A browser makes an HTTP GET request on the REST API which user types
+
+For making more kind of calls on REST API we can use [POSTMAN - a REST API] testing tool
+
+Now to return in XML format too along with JSON format, some [JACKSON DATA FORMAT XML] + extraa jars need to be added in lib, then we can
+test the return of the same previous views from POSTMAN with added 	HEADERS[KEY-accept,VALUE-application/<format>] 	to get the result
+
+REST GET :
+
+To produce result only in one format say XML (enter name and get info):
+``````````````````````````````````````````````````````````````````````````
+	--> @RequestMapping(value="/students/{name}, method=RequestMethod.GET, produces=MediaType.APPLICATION_XML_VALUE)
+
+REST PUT :
+
+To find the student Name from the DB and update the matching record with info submitted by user (put method):
+````````````````````````````````````````````````````````````````````````````````````````````````````````````
+	--> @RequestMapiing(value="/students/{name}, method=RequestMethod.PUT, @ResponseBody Student student)
+	--> we can make this method return void , so on correct update it will send STATUS CODE as 200
+	--> then we need to send a request of type [POST] to local host with the <<<< /students/{student name we wish to update record of} >>>>
+	--> we also need to 
+			1-> write the new records code which is to be sent along with the PUT req to the web app in either JSON/XML format
+					{
+						"student_name" = "<new name>"
+					}
+			2-> HEADERS[KEY = accept , VALUE = application/<req. O/P format>] 
+			3-> HEADERS[KEY = ContenT-Type , VALUE = aplication/<I/P format]
+
+	To input records only in one format say XML (enter name and get info):
+	``````````````````````````````````````````````````````````````````````````
+		--> @RequestMapping(value="/students/{name}, method=RequestMethod.PUT, produces=MediaType.APPLICATION_XML_VALUE)
+			public ResponseEntity<Void> updateRecords(),,,,,,{
+				
+				...
+				...
+				return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+			
+			}
+
+			// above - if any record is not found and returns NOT_FOUND error code
+
+REST POST :
+
+ we can similarly do POST req on the local host after defining a pOST kindof method in the RESTAPIController class as we have similarly done
+ for the above two GET & PUT. Then we can use student.setStudentName() and other func to make an entry in the DATABASE as per what the user
+ enters as input in the CONTENT TYPE.
+
+ we can changed the HttpStatus.CREATED to send STATUS CODE as CREATED
+
+ we can also a location with the STATUS CODE so that a GET request can be made on it to fetch the inserted data
+
+
+REST DELETE :
+
+we can similarly also do a DELETE kind of REST API Call as above all GET , PUT , POST .
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

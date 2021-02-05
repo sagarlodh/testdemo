@@ -1,0 +1,127 @@
+ALL JARS PHOTO IN VIDEO 33
+
+
+web app dev framework
+
+MVC - Model View Controller
+
+keeping UI code seperate from Buisness logic (java) code
+
+import the JARS into 'lib' of new project--> dynamic web app--> lib
+import loggings file
+download and integrate web server like Apache tomcat
+
+[1] we need to edit the 'web.xml' under WEB-INF with a certain FRONT CONTROLLER based xml code
+
+[2] same name from [1] should be used to create another 'Dispatcher' xml file :
+		- define a viewResolver bean with all prefix and suffix which the user will type, this will call the below line
+				<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+					<properties with prefix and suffix with values>
+
+		- here we define handler mapping bean which will direct the front controller to the below bean
+				<bean id="viewResolver" class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
+				
+		- define 'model & view' bean which will return the correct class controller to set values for return
+				<bean id="/welcome.html" class="<path of the controller class>">
+				
+
+[3] create a controller class extenedding AbstractController and override method 'handleRequestInternal'.
+		- ModelAndView m = new ModelAndView("<name of the servlet HTTP file>");
+		- m.addObject("welcomeMessage","<message>");
+
+		return m;
+
+[4] create a SERVLET .jsp file
+		define a html file where withing a header we can use -   <h2>$(welcomeMessage)</h2>
+		this value will be replacecd with the message from controller class
+
+[5] run on server on tomCAT APACHE
+
+[6] THEN type the url in browser and done :			https://localhost:8080/<nameOfProject>/<beanId fom model & view bean>
+`````````````````````````````````````````````````````````````````````
+
+WITH ANNOTATIONS :
+``````````````````
+
+we can use @Controller in the controller class and can remove the 'model & view' bean which returns controller (does same work)
+	but need to add <context:component-scan  base-package="controller class package name" /> in 'Dispatcher.xml'
+	also we can remove the handler mapping as all is already defined within the Controller class with the annotation "@RequestMapping"
+
+Multi Action Controller Class : more than 1 request handler methods
+
+- if no matching request handler message then default error message will be dispalyed
+- @RequestMapping("/welcome.html") can also be done at class level but then we need to edit the url a bit
+
+- we can use 
+	@RequestMapping("/welcome/{username}")
+	(@Pathvariable{"username"} String name) in the  method definition and
+		- m.addObject("welcomeMessage",name);	// to print the name tht the user types in place of username in the url
+
+	return m;
+
+	- we can also do the same with multiple values in the url EG: /welcome/{countryname}/{username}
+
+-we can do the same with MAP as well if many variables are there as path
+	- we neede to add <mvc:annotation-driven/> in 'Dispatcher.xml'
+	
+	(@PathVariable Map(String,String) p)
+
+	String name 	= p.get("username");
+	String country 	= p.get("countryname");
+
+	//...
+	- m.addObject("welcomeMessage","Name : "+name+"\nCountry : "+countryname);	// in html ter should be ${welcomeMessage}
+	return m;
+
+``````````````````````````````
+@RequestParam : this can be used when we submit fields in a type of html form, to fetch the values submitted and assign them to a map or
+				a variable (like basic store). Then we can use the assigned map or variable in other logic to return another form with
+				some new values or data.
+				-same we can combine it with MAP
+
+				Eg : public ..... (@RequestParam ("<variable name defined in html for input>"), String <newVar>)
+
+@ModelAttribute : automatically binds the requested parameters to the same name variables in another class or method
+					Eg : (@ModelAttribute ("<new Student1 object var to be used in html form as 'Student1.name'>") Student student1)
+									// above for class
+
+					Eg : @ModelAttribute									// we can use this to print common messages in htmls
+						 public void addCommon(Model <commonModelObject>)
+						 {
+						 	commonModelObject.addAttribute("<messageCatcher>", "<commonMessage>")
+						 	// in html ter should be ${<messageCatcher>} to replace with the commonMessage	
+						 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

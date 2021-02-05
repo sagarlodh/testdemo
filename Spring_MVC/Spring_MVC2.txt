@@ -1,0 +1,180 @@
+DATA BINDING with @ModelAttribute
+````````````````````````````````````
+
+same syntax can be used with Collections and also with collections in different classes such as
+private Address studentAddress;
+				
+if during binding, dataType mismatch occurs due to submitting wrong vaues in the form, then
+we can also along with @ModelAttribute parameters in method argument add, 'BindingResult <varname>' sperated by a comma from attribute
+and then use the variable after checking if error occurs to return orginal page again
+
+	if(varname.haserrors){return model1;}
+
+DATA BINDING with Customization :
+````````````````````````````````````
+/// for not binding automatically :
+@InitBinder									// this class is ver useful for operations
+public void notAllowed(WebDataBinder b){
+	b.setDisallowedFields(new <fieldType>[] {"<fieldName which we do not want to bind automatically"});
+	// we can also register custom DATE format and then bind it
+}
+
+we can also register and use Custom Property Editor Class but in new class we need to extend Property Editor Support
+	- and implement override methods with custom args.
+
+FORM VALIDATIONS :
+````````````````````
+(we need JSR 303/349 for these annotations, therefore import the 'hibernate' jars into lib folder)
+
+[1] @Size & @Valid
+
+	if we need a min and max length for an input of a field, 
+	we just have to use '@Size(min=2,max=30,message="Please input BW {min}-{max}")' above that field eg : private String studenHobby;
+	
+	- and then also add '@Valid' before the '@ModelAttribute' and 'BindingResult' as a whole.
+	
+	- we can also extract this custom message from '@Size' and put it in a '.properties' file :
+
+				PLACEHODLER CONCEPT :
+				```````````````````````
+				Size.student1.studentHobby = please enter {0} field between {2} and {1} characters.
+
+			 	and add a bean in WEB.xml with
+				
+					---> id = messageSource class = "org.springframework.context.support.ReloadableResourceBundleMessageSource"
+						---> property="basename"  value="/WEB-INF/<properties file name>"
+
+[2] @Pattern(regexp="[0-9]")
+
+	- if this is used above private String studenName, then it would do checking whether the name contains any NUMBER and if it does
+	  it will return an error
+
+[3] @Past
+	
+	- mentioned above DOB fields to check whether future DOB error has occurred or not
+	- vice versa for @Future
+
+[4] @Max(<maxValue>)
+
+	- to provide restrictions on number input if crosses max
+
+{{{ CUSTOME ANNOTATIONS :	}}}
+
+	---> create a annotation or interface file having complete definition of this custom annotation
+	---> create a java class having validation logic used by this custom annotation to validate the input
+	---> more information in VIDEO NO 21-22 SPRING-MVC
+
+INTERCEPTOR :
+``````````````
+if reuirement to stop working for the web application on specific days and return a 'OFF DAY' message
+
+	---> include a java class which extends HandlerInterceptorAdaptor class and overridde the 'preHandle' method
+	---> write required code in this method
+	---> put an entry of this newly added Java class in the Spring's configuration file
+	---> more information in VIDEO NO 23-24 SPRING-MVC
+
+Internationalization & Localization :
+```````````````````````````````````````
+ability to handle multiple languages
+- replace in the .jsp file which is for INPUT, every <td> field with <spring:message code="label.stduentName"/> ....
+- create a new .properties file and write key = parameter eg: label.studentName = <in french>
+- insert the bean similar to english in .xml file
+- more information in VIDEO NO 25-26 SPRING-MVC
+	--> there is another way to do this : we need to include two href links as English and French on the top of MAINFORM.jsp
+	--> regiser an interceptor with the name 'localeChangeInterceptor' in the spring-dispatcher.xml
+	--> Include an entry of 'cookieLocaleResolver' bean in the spring's configuration file.
+
+MULTIPLE THEMES :
+````````````````
+that means to out the color of text for example in different colors
+- information given in videos
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				// revise JUNIT TAGS
+				// revise JDBC JAVA
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
