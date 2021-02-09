@@ -1,0 +1,11 @@
+HATEOAS :
+````````````
+
+Hypermedia As The Engine Of Application State
+
+-> a way to rpovide links to resourcess so that the client doesnt have to deal with the problems of construction flow
+
+-> driving the interaction of the client through HYPER LINKS
+
+-> 'rel' attribute in links to add extra information 
+
