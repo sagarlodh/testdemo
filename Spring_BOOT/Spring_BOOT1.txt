@@ -1,0 +1,138 @@
+a GO TO FAST WAY of creating and launching web applications
+
+Spring acts a conatainer for diff services and this conatiner is called
+	Application Context
+
+- really quick
+- opinionated stand alone
+- production ready
+ 	
+parent contains all maven configs
+--> start the app
+--> create a servlet container
+--> host the application in the servlet container
+`````````````````````````````````````````````````````````
+
+performs classPath scan for annotations to act 
+
+to plugin in code, we can create custom classes and used annotations with the intent
+eg : @service , @controller etc etc....
+
+Tomcat Apache came with the BOOT -- embedded
+
+--> we can use SPRING.IO to create a project and import it
+--> we can do so with CLI
+--> we can ue STS IDE
+
+Appplication.properties :
+```````````````````````````
+we can use it to customise spring application itself like deriving certain predefined
+proeprties of key-value pairs to extract
+
+20-32 lecture videos very important
+
+`````````````````````````````````````````````
+To create a jar file for application we need to open the project folder
+in SPRING BOOT CLI :
+
+	[1]--> mvn clean install : to create a jar file for our application to run
+ 
+	[2]--> java -jar target/<result from [1]-- jar name>
+
+	if we want 'war' file then go to pom.xml and then change the packaging tag to 'war'
+```````````````````````````````````````````````````
+ACTUATOR :
+
+	we need to add the dependency and then if 
+
+		-> http://localhost:8080/health 	: to get the health info like disk space, uptime of the database, info on server etc.
+
+		-> in management.port=9001 			: here we can call the actuator health
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
