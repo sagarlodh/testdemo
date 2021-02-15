@@ -1,0 +1,93 @@
+OAuth
+`````````````
+we need to add dependency
+
+authorization of services by services
+
+we can create tokens here too by JWT which will have limited access fr working fofr the app
+
+--> contains user allowed permissions
+--> trustable (cannot be tampered)
+`````````````````````````````````````````````
+
+TERMINOLOGIES : 
+`````````````````
+
+[1] RESOURCE (protected sought) : whata is being sought
+[2] RESOURCE OWNER	: the user / who can grant access to the resource
+[3] RESOURCE SERVER : server hosting the resource...eg : google drive for
+[4] CLIENT : that application which needs access to the resource
+[5] AUTHORIZATION SERVER : this is implemented with the RESOURCE SERVER which implements the sevurity of the whole authorization process
+							--> also issues access tokens to the client
+
+
+OAuth Flows : 
+`````````````
+[1] Authorization Code Flow ---
+	
+		exchange of diff entities to make sure user is able to connect the client to the resource owner and server
+
+		--> resource owner telling the client to access the Resource server
+		--> Client uses the Auth server to access the Resource Server.
+		--> Auth server contacts the Resource Owner to verify the Client
+		--> Resource Owner verifies the Client
+		--> Auth server sends the Auth Token to the client
+		--> Client uses this Auth Token to access the Auth server 2nd time
+		--> Auth server gives the Client the Access Token
+		--> Client uses this Access Token to send request to the Resource server
+		--> Resource server sends the requested data/file
+
+[2] Implicit Flow ---
+
+		only diff from Flow 1 is that there is no Auth Token but direct Access Token after Resource Owner verification
+
+[3] Client Credentials Flow ---
+
+		for super trusted clients
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

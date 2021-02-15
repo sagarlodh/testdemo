@@ -1,0 +1,124 @@
+How AUTHENTICATION actually works
+```````````````````````````````````````````
+explained in 6th
+````````````````````````
+connect to embedded Database H2  :  almost same as in-memory authentication
+
+we can also define custom schema for database in ways : 
+--> schema.sql ::: queries for cration of tables like users and authorities
+--> data.sql   ::: under resources folder the queries such as insert into Users
+					and insert into Authorities and then
+
+```````````````````````````````````````````````````````````````````````````
+i can create a MAMP SERVER and create a DB there, then add tables and data and start
+MYSQL workbench and query into it by connecting to the SERVER 		// see video 8
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+for JPA based lookup we need to create service , repository and entity classses and 
+populate the database first and then rovied implemetations for lookup from DB.
+
+					// see video 8
+
+
+for JDBC and LDAP we just need to configure the authenctication instances.
+
+JDBC : /// SEE VIDEO 7
+
+LDAP : /// SEE VIDEO 9
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+we can use 
+[1] sessions token [reference tokensto a state]
+[2] JWT			   [value tokens] + can use cookies too
+
+to manage the process of remebering and saving credentials so that, we don't need to
+enter them for every page we visit...
+
+[1] Sessions Token :
+		--->  uses sessions ID + cookies
+		
+		problem : 	assumes monolithic server
+		
+
+[2] JWT : JSON Web Tokens
+
+		---> is to create a standard way b/w two parties to commuicate securely
+
+		RFC 7519 : std specification hw it shoud be structured
+
+		these days LOAD BALANCER remebers which server web app to redirect to....thus solves the problem for multiple web server apps
+
+		---> signed format token with JSON value from the client is used here to authenticate 
+		---> parts :
+
+					1. Header
+					2. Payload
+					3. Signature
+
+		---> visibility is not private
+
+		we also need to add two dependencies for using JWT
+		-> we need to do POST request
+
+		// SEE VIDEO 12
+
+``````````````````````````````````````````````````````````````
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

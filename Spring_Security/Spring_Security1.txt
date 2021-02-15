@@ -1,0 +1,85 @@
+spring security is an application framework tht helps us do application level security
+
+widely adopted
+
+--> username password authentication
+--> SSO/LDAP
+--> App Level Authentication
+--> Intra App Authorization like OAuth
+--> Microservice security (like using tokens)
+--> method level security
+
+Core Concepts :
+``````````````````
+[1] Authentication : 		who is this & what does this client want
+		
+		[a] Knowledge based authentication ---> username & password
+
+		[b] Possesion based authentication ---> system based text msg, key cards etc.
+
+		[c] Multifactor authentication 	   ---> both [a] & [b]
+
+[2] Authorization :			can this client do what it wants (like access rules)
+
+[3] Principal 	  : 		currently logged-in client (active client)
+
+[4] Granted Authority :		concept of permission for client  ( fine grained )
+
+[5] Roles	: overall roles to which we can assign auhorities	( coarse grained )
+``````````````````````````````````````````````````````````````````````````````````````
+
+Adding to Spring BOOT :
+
+	add dependency spring boot starter security
+`````````````````````````````````````````````````````
+filters are used to create the security layers
+	--> adds authentication layer
+	--> adds login form
+	--> hadles login error
+	--> creates a default userid and password
+
+we can override the defeault parameters and add our own username and password from application.properties
+`````````````````````````````
+we can also hardcode some users and their details and let Spring Security use them as username and password
+when doing authentication.
+		|
+		|---> this is handled by AUTHENTICATION MANAGER
+		|---> we need to work with AUTHENTICATION MANAGER BUILDER
+		|---> in a new CONFIG class with annotation @EnableWebSecurity extend WebSecurityConfigurerAdapter
+				--> @Override
+					protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		
+					// setting credentials here for use by spring boot security
+					auth.inMemoryAuthentication().withUser("sagar").password("sagar").roles("USER")
+							   					 .and().withUser("admin").password("admin").roles("ADMIN");
+					}
+__________________________________________
+to logout of pages : localhost:8080/logout
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+we can store passwords in encrypted hashed formats :
+	@Bean
+	public PasswordEncoder getEncoder() {
+		
+		return NoOpPasswordEncoder.getInstance();			// this will do nothing but we can change to getting hashed functions
+	}
+``````````````````````````````````````````````````````````````````
+now that authentication part is done, for authorization we can do :
+
+create new requestmapping methods in controller for /user & /admin
+--> then we use HttpSecurity object which lets us configure the access paths and restrictions
+--> this is done same in CONFIG class , just override the configure with (HttpSecurity)
+
+FOR GRANTING ACCESS TO ROLES created above :
+
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		
+		// setting the authorization for the roles USER and ADMIN 
+		http.authorizeRequests()
+			.antMatchers("/admin").hasRole("ADMIN")
+			.antMatchers("/user").hasAnyRole("USER","ADMIN")
+			.antMatchers("/").permitAll()
+			.and().formLogin();
+	}
+```````````````````````````````````````````````````````````````````````
