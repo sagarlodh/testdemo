@@ -1,0 +1,84 @@
+Types of Web Applications Architecture & Components :
+``````````````````````````````````````````````````````
+
+The “type” of web application architecture is directly proportional to how the application logic is distributed among the client and server sides.
+
+
+Serverless Architecture — 
+
+		A serverless architecture is a simple way to build and run applications and services without having to manage infrastructure. The application you deploy runs on servers, but all the server management is done by a third-party service provider like AWS. You don’t need to provision, scale, and maintain servers in5 order to run your applications, databases, and storage systems.
+
+Single-Page Applications — 
+
+		A single-page application or SPA is a type of web application architecture that interacts with the user by dynamically rewriting the current page rather than loading entire new pages from a server. In this way, one can avoid interruption of the user experience between successive pages which makes the application behave more like a desktop application.
+		All the vital code of HTML, JavaScript, and CSS is retrieved with a single page load, or the appropriate resources are dynamically loaded and added to the page as necessary.
+
+Microservices — 
+
+		They can be called small and lightweight services which are responsible for executing a single functionality. The Microservices Architecture framework allows the developers working with it to not only enhance productivity but also speed up the entire deployment process.
+
+
+
+Components of web applications
+--------------------------------
+
+	Any web application, big or small, contains these major components:
+
+	[1] View Layer:- 
+
+		When you consider an MVC application, the View layer component gives an interface to the application. Regardless if it is for users with a browser or for another application using Web services. View layer is the bridge for getting the data in and out of the application.
+
+		It does not have business logic, like calculating interest for a banking application or storing items in a shopping cart for an online catalog. It also does not contain any code for existing data to or retrieving data from a data source. Business logic is managed by the Model layer. The view layer is more focused on the interface.
+
+	[2] Business Layer:- 
+
+		It is also known as Business Logic or Domain Logic or Application Layer. The function of the business layer is to accept user requests from the browser, process them, and determine the routes through which the data will be accessed. The workflows by which the data and requests travel through the back end lay encoded in a business layer.
+
+	[3] Data Access Layer:- 
+
+		This layer is built to keep the code you use to pull data from your data store like database, flat files, or web services separate from business logic and presentation code. So even if you have to change data stores, you don’t end up rewriting the whole thing.There are many ORM frameworks that are blending the DAL with other layers which makes development easy during web application development services.
+
+	[4] Error handling, security, logging:- 
+
+		When you build a web application, people generally tend to focus on the end-goal, building, and testing only for situations when things go right. Alas! things rarely go right all the time in the real world.
+
+		This is where error handling is a vital part of any application’s user experience. And, if it is done well, it can leave your users feeling informed and properly considered.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

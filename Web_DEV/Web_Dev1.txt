@@ -1,0 +1,112 @@
+different types of Softwares :
+``````````````````````````````
+
+[1] System software
+	````````````````
+
+	A system software aids the user and the hardware to function and interact with each other. Basically, it is a software to manage computer hardware behavior so as to provide basic functionalities that are required by the user. In simple words, we can say that system software is an intermediator or a middle layer between the user and the hardware. These computer software sanction a platform or environment for the other software to work in.
+
+	Also known as Low Level Software
+
+	[a] OS
+	[b] Device Drivers
+	[c] Firmware
+	[d] Programming Language Translators
+	[e] Utility
+
+[2] Application software
+	````````````````````
+	Application Software, also known as end-user programs or productivity programs are software that helps the user in completing tasks such as doing online research, jotting down notes, setting an alarm, designing graphics, keeping an account log, doing calculations or even playing games. They lie above the system software. Unlike system software, they are used by the end-user and are specific in their functionality or tasks and do the job that they are designed to do.
+
+	[a] Word Processors
+	[b] Database Software
+	[c] Multimedia Software
+	[d] Education and Reference Software
+	[e] Graphics Software
+	[f] Web Browsers
+
+---> The software can also be classified based on their availability and sharability :
+
+[1] Freeware
+	`````````
+	Freeware software is available without any cost. Any user can download it from the internet and use it without paying any fee. However, freeware does not provide any liberty for modifying the software or charging a fee for its distribution.
+
+[2] Shareware
+	``````````
+	It is a software that is freely distributed to users on a trial basis. It usually comes with a time limit and when the time limit expires, the user is asked to pay for the continued services.
+
+[3] Open-source
+	`````````````
+
+	These kinds of software are available to users with the source code which means that a user can freely distribute and modify the software and add additional features to the software. Open-Source software can either be free or chargeable.
+
+[4] Software
+	``````````
+
+	They are also known as Closed-source software. These types of applications are usually paid and have intellectual property rights or patents over the source code. The use of these is very restricted and usually, the source code is preserved and kept as a secret.
+
+======================================================================================================
+
+CLIENT-SERVER MODEL :
+``````
+
+	web is referred to as the same model
+
+	Client :
+	^^^^^^^^
+
+	it can be a machine or program
+
+	Client Program :
+	^^^^^^^^^^^^^^^^
+
+	it is a program which allows the user to make requests
+
+
+	Servers :
+	^^^^^^^^
+
+	it is a high performance comp. device which provides functionality and serve clients
+	-> listens to requests
+	--> centralized structure
+	---> there is alaso decentralized structred which is PEER TO PEER Model
+				--> both machines can be client or server
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
