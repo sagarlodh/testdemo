@@ -1,0 +1,69 @@
+Maps & Sets :
+```````````````
+
+SETS :
+``````````
+
+add, size, has, delete
+
+	-> WeakSet();
+
+MAPS :
+````````````
+ordered key value pairs
+
+set, get, has, delete, size, clear, entries, key, values,
+	
+	-> WeakMap();
+______________
+SYMBOLS :
+`````````````````
+-> a new type of data
+-> used to generate unqiue ID, but we can't access them
+
+-> >>> let s = Symbol.for("name");
+   >>> console.log(Symbol.keyFor(s));		// to get keys for the registered symbols	
+
+   >>> Symbol.iterator
+   
+________________
+Iterables :
+`````````````````````
+ we need to create a custom iterator FOR OF for the objects
+___________
+GENERATORS
+``````````````
+`````````````````````````````````````````
+`````````````````````````````````````````
+
+learning typecript is valuable
+
+more accessibility and strictness than JS
+```````````````````````````````````````````````
+PROMISE concept important	---> related to CALLBACK Func.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

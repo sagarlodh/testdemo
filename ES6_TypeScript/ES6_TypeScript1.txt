@@ -1,0 +1,64 @@
+ES6 = ES5 + new features
+
+
+TypeScript is handled by Microsoft
+
+TRANSPILERs  :
+`````````````````
+
+converts the ES6 code to ES5
+	
+		TYPESCRIPT acts as such
+
+`````````````````````````````````````
+
+any 'var' declarations are going to be moved to the top of the line
+
+	|
+	->  this is not true for 'let'
+
+'const' -  >   mandatory value, single value;
+
+arrow function doesn't create new 'this related variable'
+
+
+REST Op in func declaration 
+SREAD Op in func call
+
+
+while dedstrucuring objects , property names should be equal to var names
+unike while destructuring arrays
+
+
+we can create alias while destructuring objects and arrays
+``````````````````````````````````````````````````````````````
+String templates : use backticks (`...`)
+
+```````````````````````````````````````````````
+CLASS has :
+[1] constructors
+[2] static methods
+[3] prototype methods
+
+extended classes need to have super() in constructors
+```````````````````````````````````````````````````````````
+
+normal imports ----> cannot be changed but object imports can be changed..!
+				---> names has to be exact
+
+default imports ---> names doesn't has to be exact
+					---> default keyword need to be mentioned
+
+for functions :
+		we need to similarly declare using export keyword and then import with curly braces
+
+		
+
+
+
+
+
+
+
+
+
