@@ -1,0 +1,67 @@
+NETFLIX ZUUL
+==============
+
+---> a typeof gatweay
+
+ [zuul and actuator dependency needed] 
+
+
+Types of fileters:
+		pre
+		post
+		error
+		custom
+		route
+
+
+we can mark the filter class as 'configuration' or we can declare it as a bean in the 'main run app' class
+
+==================================================================================================
+LEVEL 3: MICROSERVICE CONFIGURATION
+
+
+	--> seperation between code & config
+
+	The config :
+	
+		it should be externalized  
+		it should be enivornment specific
+		it should be consistent
+		it should have version history
+		it should have real time manangement
+
+we use the 'application.properties' as the config file
+--> we can use cmd to externally set another default 'application.properties' as the config file
+--> we can also set the same from cmd line by dynamically setting the property while running the jar file
+
+		{ we do need to use the annotation to get the properties from the app.properties }
+
+			--> @Value("${my.greeting : default message}")		// for normal values
+				private String greetingMessage;
+
+			--> @Value("${list}")								// for list values
+				private List<String> list;
+
+			--> @Value("#{${dbValues}}")						// for object values
+				private Map<String, String> dbValues;
+
+		create another class (@Configuration
+								@ConfigurationProperties("db"))
+			and later autowire by declaring it in the controller class,
+			then we can use those properties of that class
+
+
+	--> Spring Boot Actuator : exposes the sensitive data from the properties
+		````````````````````
+
+
+
+
+
+
+
+
+
+
+
+

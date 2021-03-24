@@ -1,0 +1,34 @@
+SERVERLESS :
+`````````````
+
+3 tier arch
+
+	[1] database
+			[2] application
+					[3] presentation
+
+-> with serverless we can js=ust focus on ap logic without having to create,install etc of the servers
+-> many benefits
+
+-> cold start time should be reduced
+-> event based triggers, stateless, cloud vendor based
+==========================================================
+API GATEWAY:
+
+[1] seperate out cross-cutting concerns
+[2] consolidate these concerns (routing)
+[3] replace multiple API calls with single API calls
+[4] routing based on headers/paths/params etc.
+[5] protocols
+============================================================
+
+UPLOADING 'clean, package' built jar file to AWS LAMBDA & API GATEWAY Concept
+
+=========================================================
+SPRING CLOUD FUNNCTIONS :
+
+	we can expose a function in spring boot application with the '@Bean' 
+	but we need to add SPRING CLOUD FUNCTION dependencies,...then we can use localhost on the
+	function name directly and get wt is reqd.
+
+	

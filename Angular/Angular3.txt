@@ -1,0 +1,59 @@
+ANGULAR FORMS :
+	
+	template(getting the data) --> class(data binding) --> services(sending the data) --> server(db)
+
+	[1] template driven forms
+			heavy on component template
+
+	[2] reactive forms
+			heavy on component class
+
+
+====================
+unit testing 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

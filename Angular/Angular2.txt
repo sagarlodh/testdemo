@@ -1,0 +1,145 @@
+TWO WAY BINDING :
+
+in template htmml :
+	
+		 <input [(ngModel)]="name" type="text"/>
+		 {{name}}
+
+in test class : 	
+	
+	public name="";
+
+in app.module.ts file :
+
+	import { FormsModule } from '@angular/forms';
+
+	@NgModule({
+	imports:[
+
+		BrowserModule,
+		FormsModule
+	],})
+
+=====================================================================
+STRUCURAL DIRECTIVES :
+
+[1]ngIf			: if and else
+[2]ngSwitch		: switch statement to compare among values
+[3]ngFor		: loop thru elements
+
+[1] in template html :
+		
+		<div *ngIf="displayName;then thenBlock; else elseBlock"></div>
+		
+		<ng-template #thenBlock><h2>TEXT</h2></ng-template>
+		<ng-template #elseBlock><h2>TEXT</h2></ng-template>
+
+	in test class :
+
+		displayName = true;
+
+[2] in template html :
+		
+		<div [ngSwitch]="color">
+			<div *ngSwitchCase="'red'">RED</div>
+						<div *ngSwitchCase="'blue'">BLUE</div>
+									<div *ngSwitchCase="'green'">GREEN</div>
+		<div *ngSwitchDefault>Default</div>
+		</div>
+
+	uin test class :
+
+		public color = "orange";	//default
+
+[3] in template html :
+		
+		<div *ngFor="let color of colors">
+			<h2> {{color}} </h2>
+		</div>
+
+	in test class :
+
+		public colors = ["red","blue","green"];
+
+==================================================================
+DATA FROM PARENT TO CHILD
+
+reverse is by EVENTS
+	-> decorators used
+	-> see videos 15
+
+PIPES : alow us to tranform data before displaying them	in VIEW
+``````	 see video 16
+
+			pipe operator ---> '|'
+			
+			Types :
+			```````
+				[1]string
+				[2]number
+				[3]percent
+				[4]currency can specify coutry too
+				[5]date
+
+==================================================================
+SERVICES :	see video 19
+
+	a class with specific purpose
+
+	>> ng g s <Service_Name>
+
+	we should regster the service with the App Module
+	
+	Dependencu Injection :	@Injectable()
+	`````````````````````
+	Injector is a container of dependencies
+	-> dependency is specified in the contructor
+
+======================================================================
+HTTP MECHANISM : see video 21
+	
+	Get			- from service to DB
+	Oservables	- a sequence of items that arrive asynchronously over time (HTTP response)
+
+	we also need to implement exception handling using 'CATCH' operator
+
+==========================================================================
+ROUTING :
+
+	see video 23
+
+	child routes
+
+=============================================================================
+some changes occurred in ANG 6 and then again in ANG 8
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

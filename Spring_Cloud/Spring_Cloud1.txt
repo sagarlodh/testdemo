@@ -1,0 +1,128 @@
+modules were reusable and many could be done
+
+gives us flexibility
+
+web apps : 	-> not needed to install on the machine
+			-> deployed on the server
+
+Backing services :
+````````````````````
+
+ config server, db , cache
+
+ ``````
+ we should have strictly seperate uild and run stages
+=======================================
+12 FACTORS APP :
+
+	[1] Code Base
+	[2] Dependency
+	[3] Config
+	[4] Backing services
+	[5] Build, release , run
+	[6] Process
+	[7] Port Binding
+	[8] Concurrency
+	[9] Disposibility
+	[10] Dev/Prod Parity : better to use containers such as DOCKERS
+	[11] Logs : treat logs as event streams
+	[12] Admin Process : admin ops which are isolated
+
+=============================================
+LEVEL 1 : SERVICES & DISCOVERY
+
+		--> MicroServices 
+
+		--> SERVICE DISCOVERY :
+				[1] Client Side
+				[2] Server Side
+
+		--> Use EUREKA Server for service discovery
+
+			
+		we need to run a server and then register our microservices using certain dependencies to the 
+		eureka server as clients
+
+			--> eureka doesn't knows 'localhost' but knows 'instance names' which can be passed in place of local-host
+				in the urls
+
+		---> heartbeat concept
+
+=================================================
+LEVEL 2 : FAULT TOLERANCE & RESILIENCE
+
+	
+	THREADS Concept --> bt limitations
+
+	TIMEOUT Concept --> always timeout as limitation
+
+	CIRCUIT BREAKER concept --> break the ckt if it is down and resume if it is up
+
+					Parameters (for when does the CKT Trip) :
+
+								[1] last n reqs to consider for decision
+								[2] how many of those should fail
+								[3] timeout duration
+
+					Parameters (for when does the CKT Trip) :
+
+								[1] how long after a ckt trip to try again
+
+					FALLBACK Concept:
+
+								[1] thow error
+								[2] default response
+								[3] use cache
+
+				we need to FAIL FAST
+
+
+				HYSTRIX Concept : [hystrix and actuator dependency needed] 
+
+						OSource Library created by NETFLIX
+						--> very popular CIRCUIT BREAKER
+						--> add dependency and annotations
+
+						uses proxy for returning instances
+
+						Problem with HYSTRIX Proxy :
+						````````````````````````````
+								falback methods doesn't get called
+								
+								SOLUTION --> therefore we need to externally put them in other classes
+
+							HYSTRIX DASHBOARD
+
+				BULKHEAD PATTERN :
+
+						way of not cascading the delay
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

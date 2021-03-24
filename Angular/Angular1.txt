@@ -1,0 +1,152 @@
+--> building single page client side web applications where parts of the view get refereshed asynchronously 
+without having to reload the whole page
+--> great for JS
+--> modular approach
+--> re-usable code
+--> development quicker and easier with help of routing/validation...
+--> unit testable and easily maintainable code
+=========================================================================
+
+2010 : Angular JS
+2016 : Angular 
+2016 dec : Angular 4
+2017 nov : Angular 5
+
+Semantic versioning
+
+=============================
+
+[1]install from CMD ---> angular
+[2]open Angular Folder VS Code --->  cmd: ng new <projectName>
+									 cmd: cd <projectName>
+									 cmd: ng serv
+[3] open local host 4200 in browser
+
+=============================
+
+--> app is a collection of modules
+
+	each module = users/admin/etc...
+
+--> every app has a ROOT Module = APP MODULE
+--> module comprises of components(portions of view) & services
+--> every module has a ROOT Component = APP COMPONENT
+--> 	each component is nested inside the ROOt Component
+--> Component : 
+		[1] HTML Template : for views
+		[2] Class : logic for views (JS/TypeScript)
+		[3] Metadata : Info (Decorators)
+--> Services :
+		class with business logic
+
+=============================================================
+
+to generate component : ng g c <compnentName>
+	it also needs to be imported to the app.module.ts and also added to the Declarations
+--> we can change selectors in 3 diff ways
+--> same with html (inline html) / style.css
+		need to change to 'template' parameter from 'templateUrl'
+
+==============================================================
+INTERPOLATION :
+
+{{name}} : where name will be fetched from the name property in the class dynamically
+
+--> we cannot assign value to a variable by interpolation
+
+only works with STRING values
+
+===============================================================
+PROPERTY BINDING :
+
+attributes & property are not same
+
+attributes - HTML cannot change once initialized DOM 
+properties - DOM can change
+
+ths works with all types unlike INTERPOLATION
+
+ways to do :
+		-> to bind a property we need to use sqaure brakets[] in templte html def
+		-> declare a variable with value in test class and then
+		-> in template html assign the variable to property within [] or bind-<property>
+
+=====================================================================
+CLASS BINDING :
+
+--> we need to declare the CSS for the class property in styles 
+--> declare and define a variable in test class and assign to it the property
+--> and use it in template html as for binding with [...]
+
+---> class attributes lose their value in presence of class-bindings
+
+// for OBJECTS
+we can use declare an OBJ and then decalre it in template HTML with:
+	<h2 [ngClass] = "<obj_Name">....</h2>
+
+	-> all the properties which are TRUE will be applied to the TEXT written inside H2
+
+===========================================================================
+STYLE BINDING :
+
+we can add inline styles to HTML document (similar to Class Binding)
+
+in Template HTML :
+		<h2 [style.color]=" 'green' ">TEXT</h2>
+
+OR we can also :
+	--> create a new property 'color' in test class and set it to a COLOR:orange
+	--> and then in template HTML :
+			<h2 [style.color]="color"> TEXT </h2>
+
+// for OBJECTS(combination of CSS)
+same as CLASS BINDING but with 'ngStyle'
+
+===========================================================================
+EVENT BINDING :
+
+--> template to class
+
+[1] in template HTML : 
+		<button (click)="onClick()">Greet</button>
+
+[3] in test class :
+		onClick(){
+			console.log(`user clicked`);
+		}
+
+we can also assign the variables here from test class and then print it using INTERPOLATION
+
+==============================================================================
+TEMPLATE REFERENCE VARIABLE :
+
+--> we can use this to print any thing which is typed in a text box and a button pressed
+[1] in template HTML : 
+		<input #myInput type="text"/>
+		<button (click)="onClick(myInput.value)">Greet</button>
+
+[3] in test class :
+		onClick(value){
+			console.log(`value`);
+		}
+==============================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

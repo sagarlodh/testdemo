@@ -1,0 +1,128 @@
+YAML
+(YAML Ain't Markup Language) 
+============================
+
+a markup language
+
+--> used to store data elements
+--> application.yml 		(key : value)
+--> everything is indented in yml files
+================================================
+	
+GOALS :
+``````
+	[1] Externalized
+	[2] Environment Specific
+	[3] Consistent
+	[4] Version History
+	[5] Real-time Management
+
+	EXTERNALIZED :
+	```````````````````
+		For making it EXTERNALIZED : we can use the 'application.properties' or '.yml'
+
+	ENVIRONMENT SPECIFIC :
+	```````````````````
+		--> we use Profiles for achieving this
+
+		For New Profile Config :		application-<profileName>.extension
+
+		>> spring.profiles.active : <profileName>		// in application.yml which is default
+
+		--> if something is missing from new profile then it's default value is selected,
+			or else if some property is modified then, new value is considered
+
+			// we can run this in cmd to achieve   'ENVIRONMENT SPECIFIC'  for app
+				>> java -jar spring-boot-config-0.0.1-SNAPSHOT.jar --spring.profiles.active=test
+
+		--> we can mention an annotation above certain classes such as REPOSITORIES to run during specific profiles
+
+			@Repository
+			@Profile("test")						// only run this class during "test" profile
+			public class LocalDataSourceBean { }
+
+	ENVIRONMENT Object :
+	```````````````````
+		--> we can also autowire an environment variable and then use it to print various properties,
+			we should use VALUE injection for this and no directly use this
+
+	CONSISTENCY & VERSION CONTROL (using GitHub):
+	````````````````````````````````````````````
+		--> SPRING CLOUD CONFIGURATION SERVER
+				we need to add dependency of ( CONFIG SERVER & CONFIG CLIENT )
+				--> @EnableConfigServer in Main Class
+
+			here we actually create an 'application.yml/properties' file in a folder which has 'GIT INIT' set
+				and push the file into the repo. (repo needs to be created beforehand)
+					Then, in our application's application.properties/yml file, we can mention
+
+					>>>	spring.cloud.config.server.git.uri = <the _ url _ path _ of _ the _ pushed File>
+
+			--> on running the application we have thus created a config server which fetches data from the config
+				file which sits on the git repo, so we just have to make changes to it instead of building/testing etc.
+
+
+				again for letting created microservices talk to the config server and fetch the properties file being used by
+				the server, we need to add the below line in the default 'APPLICATION.properties/yml' file :
+
+					>>>	spring.cloud.config.uri = http://localhost:<port_on_which_the_config_server_is_running>
+
+				so that the main app when runs can fetch the config file properties 
+				from the config server and not use the default file
+
+
+				to access in localhost : >>> localhost:<port>/spring-boot-config/default
+					__> to check the updation in the config file
+
+
+			--> we can also have a microservice specific properties/yml file in the same way but then the file should be
+				exactly named as the microservice name otherwise it won't fetch the config file but will fetch the 
+				above generic file which was done the same way.
+
+	REAL-TIME MANAGEMENT :
+	`````````````````````
+
+		now we need to ensure every time we make an update in the config file, the services do take it without having to
+		restart all of them again
+
+		--> we need 'actuator' dependency for that
+		--> then we need to add @RefreshScope annotation in the controller class 
+		--> we need to make a 'POST' request to 
+					localhost:8080/actuator/refresh
+		--> the above line ensures the refresh does happen and latest changes get updated with the services using the config file
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
