@@ -1,0 +1,88 @@
+JMS used to pass messages between two or more clients
+
+Eg: JBoss MQ
+
+JMS Proivder is responsible for routing of messages
+
+Types of messages :
+```````````````````
+	[1] Text
+	[2] Map
+	[3] Byte
+	[4] Stream
+	[5] Object
+
+
+P2P Messaging: 1 publisher and 1 receiver
+
+	-->	Queues are based on P2P
+
+Publish/Subscribe: Multiple publisher/sbscribers
+      
+	--> Topics are based on this
+
+``````````````````````````````````````````````````````
+
+DESTINATIONS is like  mailbox where mess are placed
+	-> Queues
+	-> Topics
+
+BUILDING BLOCKS OF JMS APP:
+``````````````````````````
+[1] administered objects connection factories and destinations
+[2] connections
+[3] sessions
+[4]	mess producers
+[5] mess consumers
+[6] messages
+
+Connection Fac
+	-> connection
+		-> session
+			-> msg
+			-> mess prod
+			-> mess consumer
+
+JMS MESSAGE LISTENERS :
+````````````````````
+	-> obj acting as an async event handler for mess
+	-> implements MessListener interface containing a method --- "onMessage()"
+	-> here we need to define wt action we need to be taken on message arrival
+
+JMS DELIVERY MODES:
+```````````````````
+[1] Persistant 			-> saved to DB
+[2] Non-persistant		-> not saved
+
+TOPICS SUBSCRIPTION TYPES:
+``````````````````````````
+[1] DURABLE 			-> receive mess even after some down-time
+[2] NON-DURABLE			-> receive mess only when connected to topic
+=============================================================================================================
+
+RabbitMQ
+
+	a mess broker
+		-> accepts and forward messages
+		-> uses queue
+
+	Exchange :
+		-> receive and route mess to queues
+
+			Headers Exchange Concept
+			Topic Exchnge Concept
+			Fan Out Exchange Concept
+			Direct Exchange Concept
+			Default Exchange Change
+
+ 
+
+
+
+
+
+
+
+
+
+
