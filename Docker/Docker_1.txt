@@ -1,0 +1,160 @@
+Solomon Hykes started Docker in France as an Internal project within dotCloud
+
+SOFTWARE CONTAINER PLATFORM
+
+-> bsically solves deployment issues while running applications in different environments
+by using containers
+	
+	|--> containers allow a dev to package up an application with all of the parts it needs
+			such as libs,dependencies etc., and ship it all as one package.
+
+-> Open Source promoted by DOCKER Inc.
+-> written in GO Programming Language
+-> comes into picture at DEPLOYMENT Stage
+=================================================================================================
+DOCKER
+
+	works on a client-server architecture
+
+
+	developer --> creates docker file --> docker image --> upload to docker hub --> can be pulled to diff sources --> run
+
+	--> Containerization has not OS generally
+
+	--> Docker Engine = Container Engine + VM
+
+	--> docker server receives the commands from the docker client thru REST APIs or commands
+	
+================================================================================================
+
+
+COMMANDS, IMAGES, CONTAINERS, VOLUMES
+
+Images :-	--> templates used to create docker containers (running instance of an image)
+			--> stored in registries in DOCKER HUB
+
+JENKINS CONTAINERS :
+	
+	_> docker pull jenkins
+	_> docker images -q
+	_> docker run --name MyJenkin1 -p 8080:8080 -p 50000:50000 -v /your/home:/var/jenkins_home jenkins
+
+	then login in port adn set pass and username and do all functions
+	
+	we can also create and use a volume for the sake of persisting data same as a folder created above locally
+
+===========================================================================================
+DOCKER FILES :
+
+	a simple text file with instructions to build an image
+
+	in textfile :
+
+			FROM ubuntu
+
+			MAINTAINER sagar lodh
+
+			RUN apt-get update
+
+			CMD ["echo", "HELLO WORLD..!"]
+
+			--> add text
+			--> build file with tags as name
+			--> run image
+
+===========================================================================================
+DOCKER COMPOSE :
+	
+	is a tool for defining multi docker container and applications
+
+	--> install docker compose
+	--> create a file 'docker-compose.yml' in a folder
+
+			services:
+				web:
+				  image: nginx
+				database:
+				  image: redis
+	--> check validity by :
+
+			docker-compose config
+	--> run it by :
+
+			docker-compose up -d 	: in detached mode
+
+	--> to stop em : 
+
+			docker-compose down
+===========================================================================================
+
+DOCKER VOLUMES :
+
+	used for persisting data generated nd used by containers ... even after containers are removed
+
+	_> docker volume create myVol1
+	_> docker volume ls
+	
+	--> to remove :
+
+			docker volume rm myVol1
+================================================================================================
+
+DOCKER SWARM :
+	
+	a group of machines that are runnig Docker and joined into a cluster
+
+	to create a manager :
+	``````````````````````
+		docker-machine create --driver hyperv manager1
+
+			similarly we can create many nodes
+
+		_> docker-machine ls
+
+	to connect to machine :
+	`````````````````````````
+		docker-machine ssh manager1
+
+	to make manager, run this after connecting to tht machine :
+	`````````````````````````````````````````````````````````````
+		to get ip -->	docker-machine ip manager1
+		run this thn -->  docker swarm init --advertise-addr <MANAGER_IP>
+
+	to join a node as worker :
+	````````````````````````````
+		in manager :
+
+			_> docker swarm join-token worker1
+
+			copy the O/P
+
+		in worker :
+
+			paste and enter
+
+	we can also then scale and use :
+	```````````````````````````````
+	we can also update image name and version name
+	``````````````````````````````````````````````
+	we can then shutdown the service :
+	````````````````````````````````````
+		docker node update --availability drain <nodeName>
+
+	to remove service:
+	```````````````````
+		docker service rm <serviceName>
+
+	to stop node:
+	``````````````
+		docker-machine stop worker1
+
+	to remove node from cluster:
+	``````````````````````````````
+		docker-machine rm worker1
+
+
+
+
+
+
+
