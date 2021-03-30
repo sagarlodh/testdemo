@@ -1,0 +1,43 @@
+TESTING :
+````````
+	
+	Parcel and Jest.js
+
+	-- testing library
+	-- install Jest (dev by FACEBOOK)
+			-- mainly used for testing of JAVASCRIPT
+	-- assertion library
+	-- mocking and stubing
+	-- Unit, Integration
+
+==============================================================
+REDUX :
+`````````
+
+		-- it is predictable
+		-- it is a state container
+		-- it is for JS apps
+
+		-- it is library
+		-- stores the state of ur app
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,225 @@
+an open source library for building interfaces
+
+--> created n maintained by facebook
+--> huge community
+-->	100k strs on github
+
+--> has a component based arch.
+-->	it is declarative
+		--> tell it wt to do and it will do it
+		--> it will handle efficent updating and rendering of components
+--> seamless integration
+--> react.native for mobile apps
+===================================================================================
+steps to create a REACT App :
+
+	[1] create a folder
+	[2] open it in VSCode
+	[3] in the cmd, run >>>>> npx create-react-app <app_name>
+	[4] >>> npx start			// it will start the app on port 3000
+
+we will only work with the 'index.html' and not alter the body as we need REACT to handle the UI
+
+========================================================================================
+React Components :
+`````````````````
+
+	a part of UI which are reusable and can be nested
+
+	--> component is placed in a .JS file
+	--> Types :
+				[1] Stateless Functional :
+
+							-> JS Functions which return html which describes the UI
+							-> receive object of properties and return html
+							--> create components '__.js'
+									-- import react
+									-- make functions and return something
+									-- export it
+									-- import it in App.js
+									-- use the self-closing tag
+									-- run
+							-> dumb/presentational
+							-> no 'this' keyword
+
+				[2] Stateful Class :
+
+							-> ES6 Classes which extend the component class from React lib
+							-> must contain render method which contains a html 
+							-> receive object of properties and return html
+							-> can maintain a private internal state
+							-> create components '___.js'
+									-- import React, {Component} from 'react'
+										class Welcome extends Component{
+										    render(){
+										        return  <h1>Class Component</h1>
+										    }
+										}
+										export default Welcome
+									-- import it in App.js
+									-- use the self-closing tag
+									-- run
+							-> 'this' keyword
+							-> provide lifecycle hooks
+							-> smart/container
+================================================================================================
+JSX : 
+	
+	extnsion to JS
+	--> write XML like code for elements and components
+	--> have tag name, attribute, children
+	--> not a necessity to write REACT apps
+	--> for elegant
+	--> transpiles to pure JS
+
+	-- class -> className
+	-- for -> htmlFor
+	-- camel case
+======================================================================================
+PROPS :
+	
+	props are immutable
+	-- bundle of objects which needs to be rendered
+	-- get passed to the component
+
+	[1] for Functional:
+
+			const Greet = props => {
+		    console.log(props);															// props
+		    return (
+		        <div>
+		            <h1>Hello {props.name} a.k.a {props.heroname}</h1>
+		            {props.children}
+		        </div>
+		    )
+		}
+		export default Greet
+
+		and then in App.js :
+			<Greet name="Bruce" heroname="Batman">
+        		<p>this is a child props </p>
+      		</Greet>
+
+    [2] for Class:
+
+    	class Welcome extends Component{
+    	render(){
+        return  <h1>Welcome {this.props.name} a.k.a {this.props.heroname}</h1>				// this.props
+    	}}export default Welcome
+
+    	and then in App.js :
+    		<Welcome name="Bruce" heroname="Batman"/>
+==============================================================================================
+STATE :
+	
+	-- state can be changed
+	-- managed within the component
+	-- simple example :	
+					import React, {Component} from 'react'
+
+					class Message extends Component{
+					    constructor(){
+					        super()
+					        this.state = {
+					            message: 'Welcome Visitor'
+					        }}
+					    changeMessage(){
+					        this.setState({
+					            message: 'Thankyou for subscribing'
+					        })}
+					    render(){
+					        return  (
+					            <div>
+					                <p>
+					                    <h1>{this.state.message}</h1>
+					                    <button onClick={()=>this.changeMessage()}>Subscribe</button>
+					                </p>
+					            </div>
+					        )}}
+					export default Message
+
+	-- setState :
+
+			-- calls to setstate are async
+			-- place code within the callback func to execute it right after the setstate
+			-- if update state based on prev value, pass in fucntion in setstate
+							import React, { Component } from 'react'
+							class Counter extends Component {
+							    constructor(props) {
+							        super(props)
+							    
+							        this.state = {
+							             count: 0
+							        }
+							    }
+							    incrementMethod(){
+							        this.setState({
+							            count : this.state.count + 1
+							        }, () => {
+							            console.log('Call Back Value : ' , this.state.count)
+							            }
+							        )
+
+							        /* this.setState(prevState => ({
+							            count: prevState + 1
+							        })) */
+							        console.log(this.state.count); 
+							    }
+							    incrementThree(){
+							        this.incrementMethod
+							        this.incrementMethod
+							        this.incrementMethod
+							    }
+							    render() {
+							        return (
+							            <div>
+							                count - {this.state.count}
+							                <p><button onClick={()=>this.incrementMethod()}>Increment One</button></p>
+							                {/* <p><button onClick={()=>this.incrementThree()}>Increment Three</button></p> */}
+							            </div>        
+							        )
+							    }
+							}
+							export default Counter
+======================================================================================================
+DESTRUCTURING :
+
+	
+	[1] for Functional :
+
+			[i] we can do this in the function parameter
+			[ii] we can do this in the function body
+
+	[2] for Class :
+
+			[i] do this inside render() like for [ii] of Functional
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

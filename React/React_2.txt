@@ -1,0 +1,155 @@
+EVENT HANDLING
+
+	-- event handler is a function and not a function call
+			-- os we need not add ()
+	-- for Functional :
+			import React from 'react'
+			function FunctionClick() {
+			    function clickHandler(){
+			        console.log('Function button clicked');
+			    }
+			    return (
+			        <div>
+			            <button onClick={clickHandler}>Function Click</button>
+			        </div>
+			    )
+			}
+			export default FunctionClick
+
+	-- for Class :
+			import React, { Component } from 'react'
+			export class ClassClick extends Component {
+			    
+			    clickHandler(){
+			        console.log('Clicked the class button');
+			    }
+			    
+			    render() {
+			        return (
+			            <div>
+			                <button onClick={this.clickHandler}>Class Click</button>
+			            </div>
+			        )
+			    }
+			}
+			export default ClassClick
+===========================================================================================
+BINDING EVENT-HANDLERS :
+
+	-- purely based on 'this' keyword
+	-- we should bind the event handler in constructor and not in render menthod
+	-- 4 ways :
+			[1] .bind in render
+			[2] arrow func in render
+			[3] binding in class construtor
+			[4] class prop as arrow func
+
+CHILD --> PARENT >>> see video 15
+arrow func is simplest way for transfering data from child to parent
+===================================================================================
+CONDITIONAL RENDERING :
+
+	display something based on condition
+	-- we can use ternary approach or if-else approach
+===================================================================================
+LIST RENDERING :
+
+	we can render list also using /filter/map/reduce
+
+	-- list & keys concept
+
+	-- index as key concept :
+
+			--> we can use the index as a key itself, where unique id doesn't exits
+			--> list should be a static list
+			--> list should not be reorderd or filtered
+
+					function NameListIndex() {
+				    const names = ['Bruce','Clark','Diana']
+				    const nameList = names.map((name,index) => <h2 key={index}>{index} {name}</h2>)
+				    return <div>{nameList}</div>
+					}
+					export default NameListIndex
+===========================================================================================
+STYLING & CSS :
+
+		[1] we can create '.css' & define various classes and import it in the '.js' file and then use the className
+		[2] we can also do this inline but then we need to create an object with css props as keys and values for values
+			and then add that to 'STYLE' parameter in the headings or etc.
+
+		difference in '.css' and '.module.css' is that for the latter part it helps us to not make mistakes while using
+		styles in any children components.
+=============================================================================================
+LIFECYCLE Methods :
+		
+		phases :
+			[1] mounting		: when an instance of a component is being created nd inserted into the DOM
+			[2] updating		: when re-rendered on change to props/state
+			[3] unmounting		: when a component is being removed from the DOM
+			[4] error HANDLING	: when an error occurs during rendering/ in the constructor of any child component
+=================================================================================================
+FRAGMENTS :
+
+	lets us group a list of children elements without adding extra nodes to the DOM
+
+	<React.Fragment></>   or   '<>' -> this wont let us use key attribute
+=================================================================================================
+Pure Component :
+
+	-- implements shouldComponentUpdate with a shallow props nd state comparison
+	-- Shallow Comparison (SC): primitive type ... complex type
+			does a SC with prevState with currState and if diff then only re-render otherwie not
+	-- blocks unecessary renders
+	-- only works with classes
+
+MEMO :
+	
+	-- works same as pure component but with functions
+
+Refs :
+	
+	-- can be used for putting the focus on an input field as soon as the page load
+	-- can be used with class Components
+	-- can't be attached to Functonal Components
+	-- ref forwarding
+========================================================================
+
+Higher Order Components :
+	
+	-- a func which accepts an original component and returns a new enhanced component
+	-- helps us resuse the code rather than duplicating it
+
+Render Props :
+	-- solves the same prob as HOC
+
+Contet :
+	-- solves the same above prob bt more efficiently
+		[1]create a context value
+		[2]provide a context value
+		[3]consume a context value
+========================================================================
+HTTP :
+
+	-- use AXIOS for this
+	
+
+
+
+much more in vids
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
