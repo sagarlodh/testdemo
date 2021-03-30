@@ -1,5 +1,5 @@
-# testdemo
-test repository :
+# test_theory
+theory repository :
 
 this is a repository named as 'test' -----------
 but is used to document important -----------------------
